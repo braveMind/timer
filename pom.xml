@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.jun.timer</groupId>
+    <artifactId>jun-timer</artifactId>
+    <name>timer</name>
+    <packaging>pom</packaging>
+    <version>${timer-version}</version>
+
+
+
+
+  <modules>
+    <module>timer-web</module>
+    <module>timer-core</module>
+    <module>timer-service</module>
+    <module>timer-biz</module>
+  </modules>
+</project>
