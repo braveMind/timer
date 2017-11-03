@@ -1,8 +1,9 @@
 package com.jun.timer.service;
 
-import com.iph.zhaopin.rpc.dto.JobDto;
-import com.iph.zhaopin.rpc.dto.Page;
-import com.iph.zhaopin.rpc.utils.HttpResult;
+
+import com.jun.timer.dto.JobDto;
+import com.jun.timer.dto.Page;
+import com.jun.timer.utils.HttpResult;
 
 /**
  * Created by xunaiyang on 2017/9/21.

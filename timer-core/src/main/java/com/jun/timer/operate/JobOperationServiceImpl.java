@@ -1,9 +1,10 @@
 package com.jun.timer.operate;
 
-import com.iph.zhaopin.rpc.dto.JobDto;
-import com.iph.zhaopin.rpc.service.JobService;
-import com.iph.zhaopin.rpc.utils.CronUtils;
-import com.iph.zhaopin.rpc.utils.HttpResult;
+
+import com.jun.timer.dto.JobDto;
+import com.jun.timer.service.JobService;
+import com.jun.timer.utils.CronUtils;
+import com.jun.timer.utils.HttpResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

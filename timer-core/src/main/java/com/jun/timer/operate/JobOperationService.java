@@ -1,6 +1,7 @@
 package com.jun.timer.operate;
 
-import com.iph.zhaopin.rpc.dto.JobDto;
+
+import com.jun.timer.dto.JobDto;
 
 import java.io.IOException;
 import java.util.Date;

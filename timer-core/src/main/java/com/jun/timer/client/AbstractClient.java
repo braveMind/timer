@@ -1,6 +1,6 @@
 package com.jun.timer.client;
 
-import com.iph.zhaopin.rpc.common.NettyService;
+import com.jun.timer.common.NettyService;
 import io.netty.channel.EventLoopGroup;
 import io.netty.util.concurrent.DefaultEventExecutorGroup;
 import org.slf4j.Logger;
@@ -30,6 +30,7 @@ public abstract class AbstractClient implements NettyService {
                 getThreadCount(), new ThreadFactory() {
             private AtomicInteger threadIndex = new AtomicInteger(0);
 
+            @Override
             public Thread newThread(Runnable r) {
                 return new Thread(r, "Netty Default Event Client Thread.." + this.threadIndex.incrementAndGet());
             }

@@ -1,7 +1,8 @@
 package com.jun.timer.handler;
 
-import com.iph.zhaopin.rpc.common.RpcRequest;
-import com.iph.zhaopin.rpc.common.RpcResponse;
+
+import com.jun.timer.common.RpcRequest;
+import com.jun.timer.common.RpcResponse;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;

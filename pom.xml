@@ -46,6 +46,8 @@
         <jackson-core>2.8.8</jackson-core>
         <common-lang.version>3.4</common-lang.version>
         <httpclient>4.5.2</httpclient>
+        <guava>18.0</guava>
+        <jackson-annotations>2.9.0</jackson-annotations>
 
 
     </properties>
