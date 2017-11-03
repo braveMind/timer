@@ -58,7 +58,7 @@ neurons
 # Eclipse
 .classpath
 .project
-.settings/
+
 
 # Intellij
 .idea/
@@ -71,7 +71,7 @@ neurons
 .DS_Store
 ._*
 .cache
-.settings
+
 .tmproj
 *.esproj
 *.sublime-project
@@ -89,7 +89,7 @@ target/
 .CVS
 .idea
 node_modules
-build/
+sql/
 reference/
 jscoverage_lib/
 temp/
