@@ -48,6 +48,11 @@
         <httpclient>4.5.2</httpclient>
         <guava>18.0</guava>
         <jackson-annotations>2.9.0</jackson-annotations>
+        <mysql-connector>5.1.37</mysql-connector>
+        <mybatis>3.2.8</mybatis>
+        <mybatis-spring>1.2.3</mybatis-spring>
+        <pagehelper>4.1.6</pagehelper>
+        <commons-collections>3.2.2</commons-collections>
 
 
     </properties>
