@@ -1,0 +1,9 @@
+.box{text-align: right;padding-left: 0px;padding-right: 0px;margin-bottom: 0px;bottom: 0px;top: 6px;}
+.boxText{width: auto}
+
+.guagua{
+    width: 90px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

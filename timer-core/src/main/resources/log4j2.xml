@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="info">
+    <appenders>
+        <Console name="console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="%d{yyyy/MM/dd HH:mm:ss.SSS} %t [%p] %c{1} (%F:%L) %msg%n" />
+        </Console>
+
+        <!--异步磁盘日志配置示例-->
+        <!--默认按天&按512M文件大小切分日志，默认最多保留30个日志文件-->
+        <!--注意：fileName前会自动增加文件路径，只配置文件名即可-->
+        <XMDFile name="appAppender" fileName="app.log" includeLocation="true">
+        </XMDFile>
+
+        <!--ERROR日志、WARN日志单独输出到一个文件-->
+        <XMDFile name="error-log" fileName="error.log">
+            <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+        </XMDFile>
+        <XMDFile name="warn-log" fileName="warn.log">
+            <Filters>
+                <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </XMDFile>
+
+        <Scribe name="ScribeAppender">
+            <!-- 远程日志默认使用appkey作为日志名(app.properties文件中的app.name字段)，也可以选择用如下方式自定义scribeCategory。scribeCategory优先级高于appkey-->
+            <LcLayout/>
+        </Scribe>
+        <Async name="ScribeAsyncAppender" blocking="false">
+            <AppenderRef ref="ScribeAppender"/>
+        </Async>
+
+        <CatAppender name="CatAppender"/>
+        <CraneAppender name="Crane"/>
+    </appenders>
+
+    <loggers>
+        <!--定制化配置示例：可以对某个group单独设置logger-->
+        <logger name="com.sankuai.meituan" level="info">
+        </logger>
+
+        <!-- 3rdparty Loggers -->
+        <logger name="org.springframework" level="info">
+        </logger>
+
+        <logger name="com.dianping" level="info">
+        </logger>
+
+        <logger name="com.iph.zhaopin.rpc" level="info">
+        </logger>
+
+        <root level="info">
+            <appender-ref ref="console" />                  <!--控制台输出推荐只在本地调试时使用，线上将该配置去掉-->
+            <appender-ref ref="appAppender" />
+            <appender-ref ref="error-log" />                <!--ERROR日志单独输出到一个文件-->
+            <appender-ref ref="warn-log" />                 <!--ERROR&WARN日志单独输出到一个文件-->
+            <appender-ref ref="ScribeAsyncAppender" />          <!--日志传入远程日志中心 -->
+            <appender-ref ref="CatAppender"/>
+        </root>
+    </loggers>
+
+
+</configuration>
