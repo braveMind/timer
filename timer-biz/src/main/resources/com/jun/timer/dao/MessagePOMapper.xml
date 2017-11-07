@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jun.timer.dao.MessagePOMapper" >
+  <resultMap id="BaseResultMap" type="com.jun.timer.dao.po.MessagePO" >
+    <id column="Id" property="id" jdbcType="INTEGER" />
+    <result column="jobId" property="jobId" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="body" property="body" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Id, jobId, address, body, type
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from Message
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from Message
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jun.timer.dao.po.MessagePO" >
+    insert into Message (Id, jobId, address,
+      body, type)
+    values (#{id,jdbcType=INTEGER}, #{jobId,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{body,jdbcType=VARCHAR}, #{type,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jun.timer.dao.po.MessagePO" >
+    insert into Message
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="jobId != null" >
+        jobId,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="body != null" >
+        body,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="jobId != null" >
+        #{jobId,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="body != null" >
+        #{body,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jun.timer.dao.po.MessagePO" >
+    update Message
+    <set >
+      <if test="jobId != null" >
+        jobId = #{jobId,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="body != null" >
+        body = #{body,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=BIT},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jun.timer.dao.po.MessagePO" >
+    update Message
+    set jobId = #{jobId,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      body = #{body,jdbcType=VARCHAR},
+      type = #{type,jdbcType=BIT}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                           http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd">
+<!--配置线程数，time out 时间-->
+    <bean id="nettyConfig" class="com.jun.timer.client.ClientConfig"></bean>
+    <!--Redis缓存-->
+    <bean id="nettyClient" class="com.jun.timer.client.NettyClient" init-method="start" destroy-method="shutdown">
+
+        <constructor-arg ref="nettyConfig"/>
+    </bean>
+</beans>

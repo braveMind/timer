@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jun.timer.dao.LogPOMapper">
+  <resultMap id="BaseResultMap" type="com.jun.timer.dao.po.LogPO">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="jobName" jdbcType="VARCHAR" property="jobName" />
+    <result column="appName" jdbcType="VARCHAR" property="appName" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="startTime" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="endTime" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="logType" jdbcType="VARCHAR" property="logType" />
+    <result column="info" jdbcType="VARCHAR" property="info" />
+    <result column="tenantId" jdbcType="VARCHAR" property="tenantId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, jobName, appName, address, startTime, endTime, logType, info, tenantId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Log
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Log
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jun.timer.dao.po.LogPO">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into Log (Id, jobName, appName,
+      address, startTime, endTime, 
+      logType, info, tenantId
+      )
+    values (#{id,jdbcType=INTEGER}, #{jobName,jdbcType=VARCHAR}, #{appName,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{logType,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR}, #{tenantId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jun.timer.dao.po.LogPO">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into Log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="jobName != null">
+        jobName,
+      </if>
+      <if test="appName != null">
+        appName,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="startTime != null">
+        startTime,
+      </if>
+      <if test="endTime != null">
+        endTime,
+      </if>
+      <if test="logType != null">
+        logType,
+      </if>
+      <if test="info != null">
+        info,
+      </if>
+      <if test="tenantId != null">
+        tenantId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="jobName != null">
+        #{jobName,jdbcType=VARCHAR},
+      </if>
+      <if test="appName != null">
+        #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logType != null">
+        #{logType,jdbcType=VARCHAR},
+      </if>
+      <if test="info != null">
+        #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jun.timer.dao.po.LogPO">
+    update Log
+    <set>
+      <if test="jobName != null">
+        jobName = #{jobName,jdbcType=VARCHAR},
+      </if>
+      <if test="appName != null">
+        appName = #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        startTime = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        endTime = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logType != null">
+        logType = #{logType,jdbcType=VARCHAR},
+      </if>
+      <if test="info != null">
+        info = #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantId != null">
+        tenantId = #{tenantId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jun.timer.dao.po.LogPO">
+    update Log
+    set jobName = #{jobName,jdbcType=VARCHAR},
+      appName = #{appName,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      startTime = #{startTime,jdbcType=TIMESTAMP},
+      endTime = #{endTime,jdbcType=TIMESTAMP},
+      logType = #{logType,jdbcType=VARCHAR},
+      info = #{info,jdbcType=VARCHAR},
+      tenantId = #{tenantId,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectLogList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from Log WHERE tenantId = #{tenantId,jdbcType=INTEGER}
+    <!--AND jobName in
+    <foreach item="item" collection="jobNames" open="(" separator="," close=")">
+      #{item}
+    </foreach>-->
+    ORDER BY endTime DESC
+  </select>
+
+</mapper>

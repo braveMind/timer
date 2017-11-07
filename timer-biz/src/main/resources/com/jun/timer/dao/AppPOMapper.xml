@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jun.timer.dao.AppPOMapper">
+  <resultMap id="BaseResultMap" type="com.jun.timer.dao.po.AppPO">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="appName" jdbcType="VARCHAR" property="appName" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="status" jdbcType="BIT" property="status" />
+    <result column="activeTime" jdbcType="TIMESTAMP" property="activeTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, appName, address, status, activeTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from App
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from App
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jun.timer.dao.po.AppPO">
+    insert into App (Id, appName, address, 
+      status, activeTime)
+    values (#{id,jdbcType=INTEGER}, #{appName,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{status,jdbcType=BIT}, #{activeTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jun.timer.dao.po.AppPO">
+    insert into App
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="appName != null">
+        appName,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="activeTime != null">
+        activeTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="appName != null">
+        #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BIT},
+      </if>
+      <if test="activeTime != null">
+        #{activeTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jun.timer.dao.po.AppPO">
+    update App
+    <set>
+      <if test="appName != null">
+        appName = #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=BIT},
+      </if>
+      <if test="activeTime != null">
+        activeTime = #{activeTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jun.timer.dao.po.AppPO">
+    update App
+    set appName = #{appName,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      status = #{status,jdbcType=BIT},
+      activeTime = #{activeTime,jdbcType=TIMESTAMP}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="getAddress" resultType="java.lang.String">
+    select
+    address
+    from App
+  </select>
+
+  <select id="getAddressByAppName" resultType="java.lang.String">
+    select
+    address
+    from App
+    where appName = #{appName,jdbcType=VARCHAR} AND
+    status = #{status,jdbcType=BIT}
+  </select>
+
+  <select id="selectByNameAndAddress" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from App
+    where appName = #{appName,jdbcType=VARCHAR} AND address = #{address,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectAppList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from App
+    WHERE status = 1
+  </select>
+
+  <select id="getInvalidAppList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from App
+    WHERE status = 1 AND #{activeTime,jdbcType=TIMESTAMP} > activeTime
+  </select>
+
+  <update id="updateActiveTimeByApp" >
+    UPDATE App
+    SET activeTime = #{activeTime,jdbcType=TIMESTAMP},
+    status = 1
+    WHERE appName = #{appName,jdbcType=VARCHAR} AND address = #{address,jdbcType=VARCHAR}
+  </update>
+
+</mapper>

@@ -17,6 +17,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.jun.timer</groupId>
+            <artifactId>timer-core</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
         </dependency>
