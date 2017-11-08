@@ -43,13 +43,10 @@ public class CoreJob implements Job {
     private AppApplication appApplication;
 
 
-    private MessageApplication messageApplication;
-
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
         jobApplication = ApplicationContextHolder.getBean(JobApplication.class);
         appApplication = ApplicationContextHolder.getBean(AppApplication.class);
-        messageApplication = ApplicationContextHolder.getBean(MessageApplication.class);
         JobKey jobKey = context.getTrigger().getJobKey();
         String jobName = jobKey.getName();
         String jobGroup = jobKey.getGroup();
@@ -97,7 +94,7 @@ public class CoreJob implements Job {
             logDto.setLogType(LogTypeEnum.REQUEST_SEND.getIndex());
 
         } else if (!StringUtils.isEmpty(jobDto.getJobOwner())) {
-            DefaultThreadPool.executor.submit(new AlarmTask(messageApplication, jobDto));
+            DefaultThreadPool.executor.submit(new AlarmTask(jobDto));
         }
         logDto.setInfo(CommonUtils.getLogInfo(logDto));
         ApplicationContextHolder.getLogApplication().modifyLogInfo(logDto);
@@ -122,11 +119,9 @@ public class CoreJob implements Job {
     }
 
     private class AlarmTask implements Runnable {
-        MessageApplication messageService;
         JobDto jobDto;
 
-        public AlarmTask(MessageApplication messageApplication, JobDto jobDto) {
-            this.messageService = messageService;
+        public AlarmTask(JobDto jobDto) {
             this.jobDto = jobDto;
         }
 
@@ -136,11 +131,12 @@ public class CoreJob implements Job {
         }
 
         private void sendElephant(AlarmTask task) {
-            if (messageService != null) {
+           MessageApplication messageApplication= ApplicationContextHolder.getBean(MessageApplication.class);
+            if (messageApplication != null) {
                 EmailMessageDto emailMessageDto = new EmailMessageDto("Timer调度系统", jobDto.getJobOwner(), jobDto.getId().longValue(),
                         MessageFormat.format(ConstantString.JOB_MESSAGE_TEMPLATE, CommonUtils.storeName2RealName(jobDto.getJobName())));
 
-                messageService.sendAlarmMessage(emailMessageDto);
+                messageApplication.sendAlarmMessage(emailMessageDto);
             }
 
         }

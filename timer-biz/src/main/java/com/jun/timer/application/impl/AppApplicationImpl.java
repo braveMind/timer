@@ -12,6 +12,7 @@ import com.jun.timer.dto.AppDto;
 import com.jun.timer.dto.AppInfoDto;
 import com.jun.timer.dto.EmailMessageDto;
 import com.jun.timer.dto.Page;
+import com.jun.timer.spring.ApplicationContextUtil;
 import com.jun.timer.utils.CommonUtils;
 import com.jun.timer.utils.DefaultThreadPool;
 import org.apache.commons.collections.CollectionUtils;
@@ -44,8 +45,7 @@ public class AppApplicationImpl implements AppApplication, InitializingBean {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AppApplicationImpl.class);
 
-    @Autowired
-    private MessageApplication messageApplication;
+
 
     @Autowired
     private AppDomain appDomain;
@@ -175,6 +175,7 @@ public class AppApplicationImpl implements AppApplication, InitializingBean {
         }
 
         private void sendElephant(ElephantTask t) {
+           MessageApplication messageApplication= ApplicationContextUtil.getBean(MessageApplication.class);
             List<JobPO> jobPOS = jobDomain.getJobListByAppName(appName);
             if (CollectionUtils.isNotEmpty(jobPOS)) {
                 jobPOS.forEach(p -> {
