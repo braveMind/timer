@@ -19,7 +19,7 @@ import java.io.IOException;
  * Created by jun
  * 17/7/5 上午10:49.
  * des:rpc 服务端
- * 两边互为服务器
+ *
  */
 public class NettyServer implements ServerService {
     Logger logger = LoggerFactory.getLogger(NettyServer.class);

@@ -3,12 +3,11 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
-<display-name>zhaopin-timer-web</display-name>
+<display-name>timer-web</display-name>
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
-      classpath*:timer/core/appcontext-timer.xml,
-      classpath*:config/spring/local/appcontext-*.xml,
+      classpath*:timer/core/appcontext-timer.xml
     </param-value>
   </context-param>
 
@@ -38,19 +37,6 @@
   <filter-mapping>
     <filter-name>characterEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
-  </filter-mapping>
-
-  <filter>
-    <filter-name>mtFilter</filter-name>
-    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-    <init-param>
-      <param-name>targetFilterLifecycle</param-name>
-      <param-value>true</param-value>
-    </init-param>
-  </filter>
-  <filter-mapping>
-    <filter-name>mtFilter</filter-name>
-    <url-pattern>/*</url-pattern><!-- 配置需要被sso&upm Filter拦截的url-pattern -->
   </filter-mapping>
 
   <servlet>

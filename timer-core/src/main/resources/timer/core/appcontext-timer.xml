@@ -7,4 +7,6 @@
 
 
     <bean id="jobOperationService" class="com.jun.timer.operate.JobOperationServiceImpl"/>
+    <bean id="applicationContextUtil" class="com.jun.timer.spring.ApplicationContextUtil"></bean>
+
 </beans>
