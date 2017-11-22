@@ -7,7 +7,9 @@
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
-      classpath*:timer/core/appcontext-timer.xml
+      classpath*:timer/core/appcontext-timer.xml,
+      classpath*:spring-mybatis.xml,
+      classpath*:config/spring/local/appcontext-*.xml,
     </param-value>
   </context-param>
 

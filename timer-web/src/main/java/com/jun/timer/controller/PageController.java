@@ -1,4 +1,4 @@
-package controller;
+package com.jun.timer.controller;
 
 
 import com.jun.timer.dto.ListResult;

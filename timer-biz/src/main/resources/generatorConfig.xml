@@ -11,7 +11,7 @@
             <property name="suppressDate" value="true"/>
         </commentGenerator>
         <!--数据库链接URL，用户名、密码 -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/timer" userId="root" password="">
+        <jdbcConnection driverClass="${com.mysql.jdbc.Driver}" connectionURL="${url}" userId="${username}" password="${password}">
         </jdbcConnection>
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>

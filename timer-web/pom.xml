@@ -21,6 +21,11 @@
             <artifactId>timer-core</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.jun.timer</groupId>
+            <artifactId>timer-service</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
