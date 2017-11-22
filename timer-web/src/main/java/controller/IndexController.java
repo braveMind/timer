@@ -24,21 +24,5 @@ public class IndexController {
         return new ResponseEntity<String>("OK", org.springframework.http.HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/create")
-    @ResponseBody
-    public ResponseEntity<String> create() {
-        JobDto jobDto = new JobDto();
-        jobDto.setDescription("伯乐简历定时推送服务");
-        jobDto.setJobName("测试");
-        jobDto.setAppName("zhaopin-timer-service");
-        jobDto.setClassName("boleResumeJob");
-        jobDto.setMethodName("pushResumeToBole");
-        jobDto.setParams("{\"mis\":\"wangmanlin\",\"tenantId\":\"1\",\"resumeId\":6,\"recommendJobId\":180582195534250020,\"ip\":\"180.153.132.29\"}");
-        jobDto.setRouteStrategy(1);
-
-        Integer jobId = jobOperationService.addJob("1", jobDto, new Date(System.currentTimeMillis() + 60000 * 120));
-
-        return new ResponseEntity<String>(jobId.toString(), org.springframework.http.HttpStatus.OK);
-    }
 
 }
