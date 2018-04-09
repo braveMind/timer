@@ -120,10 +120,10 @@
 					<div class="page-content">
 						<div class="page-header">
 							<h1>
-								控制台
+								使用教程
 								<small>
 									<i class="icon-double-angle-right"></i>
-									 查看
+									<a href="https://wiki.sankuai.com/pages/viewpage.action?pageId=1002544810" target="_blank">Timer使用文档</a>
 								</small>
 							</h1>
 						</div><!-- /.page-header -->

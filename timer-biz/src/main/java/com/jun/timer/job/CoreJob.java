@@ -15,6 +15,7 @@ import com.jun.timer.enums.JobTypeEnum;
 import com.jun.timer.enums.LogTypeEnum;
 import com.jun.timer.enums.RouteStrategyEnum;
 import com.jun.timer.router.BaseRouter;
+import com.jun.timer.router.RouteFactory;
 import com.jun.timer.utils.ApplicationContextHolder;
 import com.jun.timer.utils.CommonUtils;
 import com.jun.timer.utils.DefaultThreadPool;
@@ -103,14 +104,16 @@ public class CoreJob implements Job {
 
     public RpcResponse doExecute(JobParams jobParams, List<String> addressList, LogDto logDto, int routeStrategy, int retryCount) {
         retryCount = retryCount < 1 ? 1 : retryCount;
-        BaseRouter router = RouteStrategyEnum.getRouter(routeStrategy);
-        router = (router == null ? RouteStrategyEnum.ROUTE_BY_FAILOVER.getRouter() : router);
-        if (RouteStrategyEnum.ROUTE_BY_FAILOVER.getType() == routeStrategy) {
+        RouteStrategyEnum strategyEnum = RouteStrategyEnum.getStrategyEnum(routeStrategy);
+        strategyEnum = strategyEnum == null ? RouteStrategyEnum.ROUTE_BY_FAILOVER : strategyEnum;
+        BaseRouter router = RouteFactory.getRouter(strategyEnum);
+
+        if(RouteStrategyEnum.ROUTE_BY_FAILOVER.getType() == routeStrategy) {
             return router.routeRun(jobParams, addressList, logDto);
         } else {
-            for (int i = 0; i < retryCount; i++) {
+            for(int i = 0; i < retryCount; i++) {
                 RpcResponse rpcResponse = router.routeRun(jobParams, addressList, logDto);
-                if (rpcResponse != null && Result.SUCCESS == rpcResponse.getResult()) {
+                if(rpcResponse != null && Result.SUCCESS == rpcResponse.getResult()) {
                     return rpcResponse;
                 }
             }

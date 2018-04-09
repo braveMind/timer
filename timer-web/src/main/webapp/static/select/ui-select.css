@@ -1,0 +1,124 @@
+@charset "utf-8";
+
+/*ui-select样式，可根据实际项目需求进行调整*/
+
+
+.ui-select-wrap {
+  display: inline-block;
+  border: 1px solid #aaa;
+  position: relative;
+  height: 30px;
+  padding-right: 15px;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  cursor: pointer;
+  font: 100 16px/30px;
+  -webkit-user-select: none;
+  user-select: none;
+  z-index: 8;
+  vertical-align: top;
+}
+
+.ui-select-wrap.focus { z-index: 9; }
+
+select.ui-select {
+  height: 32px;
+  vertical-align: top;
+  padding: 0 8px 0 4px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  font: 100 16px/30px;
+}
+
+.ui-select-wrap>select {
+  display: none;
+  height: 32px;
+  vertical-align: top;
+  padding: 0 8px;
+  border: 1px solid #aaa;
+}
+
+.ui-select-input {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 15px;
+  padding-left: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.ui-select-arrow {
+  display: block;
+  position: absolute;
+  right: 3px;
+  top: 40%;
+  height: 0;
+  width: 0;
+  border: 5px solid transparent;
+  border-width: 6px 5px 0 5px;
+  border-top-color: #999;
+}
+
+.ui-select-list {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  z-index: 10;
+  left: -1px;
+  top: 30px;
+  background-color: #fff;
+  border: 1px solid #AAA;
+  width: 100%;
+  overflow: auto;
+  max-height: 200px;
+  border-radius: 0 3px 3px 3px;
+}
+
+.ui-select-wrap.up .ui-select-list {
+  top: auto;
+  bottom: 30px;
+}
+
+.ui-select-wrap.focus .ui-select-list { display: block; }
+
+.ui-select-list>li {
+  display: block;
+  line-height: 28px;
+  padding: 0 10px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ui-select-list>li:hover { background-color: #ddd; }
+
+.ui-select-list>li.selected {
+  background-color: #0080ff;
+  color: #fff;
+}
+
+.ui-select-list>li.disabled {
+  background-color: #f2f2f2;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.ui-select-list>li.disabled.selected {
+  background-color: #59ADFF;
+  color: #f2f2f2;
+  cursor: not-allowed;
+}
+
+.ui-select-wrap.disabled {
+  color: #999;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+.ui-select-wrap.disabled .ui-select-arrow { border-top-color: #ccc; }

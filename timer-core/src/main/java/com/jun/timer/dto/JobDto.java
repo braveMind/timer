@@ -8,6 +8,7 @@ import java.util.Date;
  */
 public class JobDto implements Serializable {
     private static final long serialVersionUID = 1408150187922406626L;
+
     private Integer id;
 
     private String appName;
@@ -35,6 +36,8 @@ public class JobDto implements Serializable {
     private Integer routeStrategy;
 
     private Integer retryCount;
+
+    private String targetIp;
 
     public Integer getId() {
         return id;
@@ -146,5 +149,13 @@ public class JobDto implements Serializable {
 
     public void setRetryCount(Integer retryCount) {
         this.retryCount = retryCount;
+    }
+
+    public String getTargetIp() {
+        return targetIp;
+    }
+
+    public void setTargetIp(String targetIp) {
+        this.targetIp = targetIp;
     }
 }

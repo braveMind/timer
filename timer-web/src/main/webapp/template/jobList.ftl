@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <#import "/common/common.import.ftl" as common>
 <#import "/common/common.list.ftl" as list>
 <@common.stylecss />
@@ -7,6 +7,8 @@
 <link href="${request.contextPath}/static/plugin/jquery.pagination.css" type="text/css" rel="stylesheet"/>
 <link href="${request.contextPath}/static/assets/css/css-timer/box.css" type="text/css" rel="stylesheet"/>
 <link href="${request.contextPath}/static/toast/jquery.toast.css" type="text/css" rel="stylesheet"/>
+<link href="${request.contextPath}/static/select/ui-select.css" type="text/css" rel="stylesheet"/>
+
 <style>
     .guagua{
         width: 90px;
@@ -136,7 +138,7 @@
                         <i class="icon-home home-icon"></i>
                         <a href="#">首页</a>
                     </li>
-                    <li class="active">控制台</li>
+                    <li class="active">任务列表</li>
                 </ul>
                 <!-- .breadcrumb -->
 
@@ -201,7 +203,7 @@
                                         <div class="col-md-4">
                                             <div class="input-icon">
                                                 <i class="fa fa-check-circle-o"></i>
-                                                <input class="form-control" placeholder="mis号" id="jobOwner">
+                                                <input class="form-control" placeholder="mis号,多个请用逗号隔开" id="jobOwner">
                                             </div>
                                         </div>
                                     </div>
@@ -229,7 +231,7 @@
                                         <div class="col-md-4">
                                             <div class="input-icon">
                                                 <i class="fa fa-check-circle-o"></i>
-                                                <input class="form-control" placeholder="任务执行连续失败报警阈值" id="retryCount">
+                                                <input class="form-control" placeholder="任务执行连续失败报警阈值" id="retryCount"/>
                                             </div>
                                         </div>
 
@@ -237,7 +239,15 @@
                                         <div class="col-md-4">
                                             <div class="input-icon">
                                                 <i class="fa fa-check-circle-o"></i>
-                                                <input class="form-control" placeholder="任务执行路由策略" id="routeStrategy">
+                                                <select class="form-control" placeholder="任务执行路由策略" id="routeStrategy" onchange="showTargetIp()">
+                                                    <option value="0">第一个</option>
+                                                    <option value="1">最后一个</option>
+                                                    <option value="2">轮询</option>
+                                                    <option value="3">随机执行</option>
+                                                    <option value="4">一致性HASH</option>
+                                                    <option value="5" selected="selected">故障转接</option>
+                                                    <option value="6">指定机器,调试时使用</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -256,6 +266,16 @@
                                             <div class="input-icon">
                                                 <i class="fa fa-check-circle-o"></i>
                                                 <input class="form-control" placeholder="cron表达式" id="cron">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="padding-top: 10px" display="none" id="showIp">
+                                        <label class="col-md-2 box">指定IP</label>
+                                        <div class="col-md-4">
+                                            <div class="input-icon">
+                                                <i class="fa fa-check-circle-o"></i>
+                                                <input class="form-control" placeholder="指定执行机IP" id="targetIp">
                                             </div>
                                         </div>
                                     </div>
@@ -382,7 +402,7 @@
                                 result.data[i].cron +
                                 "</span> </td> <td class='hidden-480 '> <span class='label label-sm label-warning'>" +
                                 result.data[i].status +
-                                "</span> </td> " + "<td class=' '> <div class='visible-md visible-lg hidden-sm hidden-xs action-buttons'> <a class='blue' href='javascript:void(0);' onclick='editJob(this)'> <i class='icon-zoom-in bigger-130'></i> </a> <a class='green' href='javascript:void(0);' onclick='editJob(this)'> <i class='icon-pencil bigger-130'></i> </a> <a class='red' href='javascript:void(0);' onclick='deleteJob(this)'> <i class='icon-trash bigger-130'></i> </a> <button class='btn btn-minier btn-success' onclick='runOneTime(this)'>立即运行一次</button><label> <input type='checkbox' class='ace ace-switch ace-switch-3'  onchange='changeJobStatus(this)'" +
+                                "</span> </td> " + "<td class=' '> <div class='visible-md visible-lg hidden-sm hidden-xs action-buttons'> <a class='blue' href='javascript:void(0);'> <i class='icon-zoom-in bigger-130'></i> </a> <a class='green' href='javascript:void(0);' onclick='editJob(this)'> <i class='icon-pencil bigger-130'></i> </a> <a class='red' href='javascript:void(0);' onclick='deleteJob(this)'> <i class='icon-trash bigger-130'></i> </a> <button class='btn btn-minier btn-success' style='bottom:4px;' onclick='runOneTime(this)'>立即运行一次</button><label> <input  type='checkbox' class='ace ace-switch ace-switch-3' onchange='changeJobStatus(this)'" +
                                 (result.data[i].status ==true? "checked ='true'":"") + "> <span class='lbl'></span> </label> </div> </td>";
                     }
                     $("#listData").html(out);
@@ -408,7 +428,8 @@
             retryCount:$("#retryCount").val()? $("#retryCount").val() : null,
             routeStrategy:$("#routeStrategy").val()? $("#routeStrategy").val() : null,
             cron:$("#cron").val()? $("#cron").val() : null,
-            params:$("#params").val()? $("#params").val() : null
+            params:$("#params").val()? $("#params").val() : null,
+            targetIp:$("#targetIp").val()? $("#targetIp").val() : null
         };
         var jobId = $('#jobId').val();
         var url = jobId? "/api/modifyJob" : "/api/createJob";
@@ -435,6 +456,7 @@
         });
     };
     var editJob = function (obj) {
+        $("#showIp").display = 'none';
         $('#myModalLabel').text("修改任务调度信息");
         $('#myModal').modal();
         var tdList = $(obj).parents("tr").find("td");
@@ -450,9 +472,14 @@
         $("#routeStrategy").val(jobInfo[index].routeStrategy);
         $("#params").val(jobInfo[index].params);
         $("#cron").val(jobInfo[index].cron);
+        $("#targetIp").val(jobInfo[index].targetIp);
         $("#dialog input").attr("disabled","disabled");
         $("#jobOwner").removeAttr("disabled");
         $("#cron").removeAttr("disabled");
+        $("#params").removeAttr("disabled");
+        if(jobInfo[index].routeStrategy == "6") {
+            $("#targetIp").removeAttr("disabled");
+        }
     };
 
     var deleteJob = function (obj) {
@@ -479,6 +506,8 @@
         $('#myModalLabel').text("新建任务调度信息");
         $("#dialog input").removeAttr("disabled");
         $("#dialog input").val("");
+        $("#targetIp").attr("disabled","disabled");
+        $("#targetIp").attr("disabled","disabled");
         $('#myModal').modal();
     };
 
@@ -500,6 +529,15 @@
         };
         sendPostRequest(requestUrl, '', callback);
     };
+
+    var showTargetIp = function () {
+        var strategy = $("#routeStrategy").val();
+        if(strategy == '6') {
+            $("#targetIp").removeAttr("disabled");
+        } else {
+            $("#targetIp").attr("disabled","disabled");
+        }
+    }
 
     var sendPostRequest = function (url, data, callback) {
         $.ajax({
@@ -531,6 +569,7 @@
     }
 </script>
 <script src="${request.contextPath}/static/toast/jquery.toast.js"></script>
+<script src="${request.contextPath}/static/select/ui-select.js"></script>
 </body>
 </html>
 

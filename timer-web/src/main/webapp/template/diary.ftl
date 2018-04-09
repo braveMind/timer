@@ -124,7 +124,7 @@
                         <i class="icon-home home-icon"></i>
                         <a href="#">首页</a>
                     </li>
-                    <li class="active">控制台</li>
+                    <li class="active">日志列表</li>
                 </ul>
                 <!-- .breadcrumb -->
 

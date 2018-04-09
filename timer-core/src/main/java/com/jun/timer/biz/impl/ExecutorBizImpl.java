@@ -9,7 +9,10 @@ import com.jun.timer.dto.JobParams;
 import com.jun.timer.server.NettyServerFactory;
 import com.jun.timer.service.RegisterService;
 import com.jun.timer.spring.ApplicationContextUtil;
+import com.jun.timer.utils.AopTargetUtils;
 import org.slf4j.Logger;
+import org.springframework.aop.support.AopUtils;
+import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 import java.io.Closeable;
@@ -56,50 +59,87 @@ public class ExecutorBizImpl implements ExecutorBiz, Closeable {
 
         @Override
         public void run() {
-            if (log.isInfoEnabled()) log.info("业务方法开始执行！");
+            if (log.isInfoEnabled()) {
+                log.info("业务方法开始执行！");
+            }
             String clazzName = jobParams.getClassName();
             Object jobCallBack = NettyServerFactory.beanMapping.get(clazzName);
-            if (!classMap.containsKey(jobParams.getClassName())) {
-                classMap.put(clazzName, jobCallBack.getClass());
-            }
-            if (jobCallBack == null) {
+            if (AopUtils.isAopProxy(jobCallBack)) {
                 try {
-                    jobCallBack = Class.forName(jobParams.getClassName()).newInstance();
-                } catch (InstantiationException e) {
-                    if (log.isErrorEnabled()) log.error(e.getMessage());
-                } catch (IllegalAccessException e) {
-                    if (log.isErrorEnabled()) log.error(e.getMessage());
-                } catch (ClassNotFoundException e) {
-                    if (log.isErrorEnabled()) log.error(e.getMessage());
+
+                    Object jobTarget = AopTargetUtils.getTarget(jobCallBack);
+                    Method[] methods = jobTarget.getClass().getMethods();
+                    for (Method method : methods) {
+                        Clock clock = method.getAnnotation(Clock.class);
+                        if (clock != null) {
+                            if (!StringUtils.isEmpty(clock.name())) {
+                                methodMap.put(clock.name(), method);
+                            } else {
+                                methodMap.put(method.getName(), method);
+                            }
+                        }
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            }
-            /*目前参数支持String类型，Object序列化*/
-            Method[] methods = classMap.get(clazzName).getMethods();
-            for (Method method : methods) {
-                Clock clock = method.getAnnotation(Clock.class);
-                if (clock != null) {
-                    if (!StringUtils.isEmpty(clock.name())) {
-                        methodMap.put(clock.name(), method);
-                    } else {
-                        methodMap.put(method.getName(), method);
+            } else {
+                if (!classMap.containsKey(jobParams.getClassName())) {
+                    classMap.put(clazzName, jobCallBack.getClass());
+                }
+                if (jobCallBack == null) {
+                    try {
+                        jobCallBack = Class.forName(jobParams.getClassName()).newInstance();
+                    } catch (InstantiationException e) {
+                        if (log.isErrorEnabled()) {
+                            log.error(e.getMessage());
+                        }
+                    } catch (IllegalAccessException e) {
+                        if (log.isErrorEnabled()) {
+                            log.error(e.getMessage());
+                        }
+                    } catch (ClassNotFoundException e) {
+                        if (log.isErrorEnabled()) {
+                            log.error(e.getMessage());
+                        }
                     }
                 }
+            /*目前参数支持String类型，Object序列化*/
+                Method[] methods = classMap.get(clazzName).getMethods();
+                //aop 方法
+                for (Method method : methods) {
+                    Clock clock = method.getAnnotation(Clock.class);
+                    if (clock != null) {
+                        if (!StringUtils.isEmpty(clock.name())) {
+
+                            methodMap.put(clock.name(), method);
+                        } else {
+                            methodMap.put(method.getName(), method);
+                        }
+                    }
+                }
+
             }
+
             executeJob(jobCallBack);
+
         }
 
+
         private void executeJob(Object jobCallBack) {
+           // Transaction t = Cat.newTransaction("business call", "start business");
             Method m = methodMap.get(jobParams.getMethodName());
+            Assert.notNull(m, "business method not found");
             Clock clock = m.getAnnotation(Clock.class);
             try {
                 if (m != null && m.getParameterTypes().length == 1) {
                     m.invoke(jobCallBack, (String) jobParams.getParams());
-                } else {
+                    log.info("business ok");
+                } else if (m != null && m.getParameterTypes().length == 0) {
                     m.invoke(jobCallBack);
-                }
-                if (log.isInfoEnabled()) {
                     log.info("business ok");
                 }
+
                 /*job执行完毕后进行 客户端 success 方法执行*/
                 registerService.jobExecutionResult(jobParams.getLogId(), Result.EXECUTE_SUCCESS.getCode());
                 if (!StringUtils.isEmpty(clock.success())) {
@@ -109,12 +149,15 @@ public class ExecutorBizImpl implements ExecutorBiz, Closeable {
                     }
                 }
 
+             //   t.setStatus(Transaction.SUCCESS);
             } catch (Exception e) {
                 /*job执行异常的时候 执行客户端 fail 方法*/
                 try {
                     if (!StringUtils.isEmpty(clock.fail())) {
                         Method fail = jobCallBack.getClass().getMethod(clock.fail());
-                        if (fail != null) fail.invoke(jobCallBack);
+                        if (fail != null) {
+                            fail.invoke(jobCallBack);
+                        }
                     }
 
                 } catch (NoSuchMethodException e1) {
@@ -124,15 +167,17 @@ public class ExecutorBizImpl implements ExecutorBiz, Closeable {
                 } catch (IllegalAccessException e1) {
                     e1.printStackTrace();
                 }
+               // t.setStatus(e);
                 try {
                     if (log.isInfoEnabled()) {
                         log.info("business error");
                     }
                     registerService.jobExecutionResult(jobParams.getLogId(), Result.EXECUTE_FAIL.getCode());
                 } catch (IOException e1) {
-                    log.error(e1.getMessage());
+                  //  t.setStatus(e1);
                 }
-
+            } finally {
+               // t.complete();
             }
         }
     }

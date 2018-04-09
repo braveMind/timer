@@ -7,6 +7,6 @@
 
 
     <bean id="jobOperationService" class="com.jun.timer.operate.JobOperationServiceImpl"/>
-    <bean id="applicationContextUtil" class="com.jun.timer.spring.ApplicationContextUtil"></bean>
-
+    <!--防止和客户端重名-->
+    <bean id="applicationContextUtil_timer" class="com.jun.timer.spring.ApplicationContextUtil"></bean>
 </beans>
