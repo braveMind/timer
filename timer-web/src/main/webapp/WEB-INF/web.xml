@@ -12,24 +12,24 @@
     </param-value>
   </context-param>
 
-  <listener>
+ <!-- <listener>
     <listener-class>com.dianping.cat.servlet.CatListener</listener-class>
-  </listener>
+  </listener>-->
   <!-- 读取 contextConfigLocation -->
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
 
-  <filter>
+  <!--<filter>
     <filter-name>cat-filter</filter-name>
     <filter-class>com.dianping.cat.servlet.CatFilter</filter-class>
-  </filter>
-  <filter-mapping>
+  </filter>-->
+  <!--<filter-mapping>
     <filter-name>cat-filter</filter-name>
     <url-pattern>/*</url-pattern>
     <dispatcher>REQUEST</dispatcher>
     <dispatcher>FORWARD</dispatcher>
-  </filter-mapping>
+  </filter-mapping>-->
 
 
 
@@ -51,7 +51,7 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 
-  <filter>
+  <!--<filter>
     <filter-name>mtFilter</filter-name>
     <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
     <init-param>
@@ -61,8 +61,8 @@
   </filter>
   <filter-mapping>
     <filter-name>mtFilter</filter-name>
-    <url-pattern>/*</url-pattern><!-- 配置需要被sso&upm Filter拦截的url-pattern -->
-  </filter-mapping>
+    <url-pattern>/*</url-pattern>&lt;!&ndash; 配置需要被sso&upm Filter拦截的url-pattern &ndash;&gt;
+  </filter-mapping>-->
 
   <servlet>
     <servlet-name>mvc-dispatcher</servlet-name>
