@@ -2,6 +2,7 @@ package com.jun.timer.domain.impl;
 
 import com.github.pagehelper.PageHelper;
 
+import com.jun.timer.constant.ConstantString;
 import com.jun.timer.dao.JobPOMapper;
 import com.jun.timer.dao.po.JobPO;
 import com.jun.timer.domain.JobDomain;
@@ -48,12 +49,12 @@ public class JobDomainImpl implements JobDomain {
     @Override
     public List<JobPO> queryJobList(String tenantId, String jobOwner, Page page) {
         PageHelper.startPage(page.getPageNo(), page.getPageSize());
-        return jobPOMapper.selectJobList(tenantId);
+        return jobPOMapper.selectJobList(ConstantString.tenant,jobOwner);
     }
 
     @Override
     public List<String> getJobNameByOwner(String tenantId, String jobOwner) {
-        return jobPOMapper.selectJobNameByJobOwner(tenantId, jobOwner);
+        return jobPOMapper.selectJobNameByJobOwner(ConstantString.tenant, jobOwner);
     }
 
     @Override

@@ -4,6 +4,7 @@ package com.jun.timer.impl;
 import com.jun.timer.application.AppApplication;
 import com.jun.timer.application.JobApplication;
 import com.jun.timer.application.LogApplication;
+import com.jun.timer.constant.ConstantString;
 import com.jun.timer.dto.*;
 import com.jun.timer.service.PageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +23,12 @@ public class PageServiceImpl implements PageService {
 
     @Autowired
     private LogApplication logApplication;
+    //没接配置中心 先写死
+    private static final String tenant= ConstantString.tenant;
 
     @Override
     public ListResult jobList(String tenantId, Page page, String jobOwner) {
-        JobResultDto jobResultDto = jobApplication.getJobList(tenantId, page, jobOwner);
+        JobResultDto jobResultDto = jobApplication.getJobList(tenant, page, jobOwner);
         ListResult listResult=new ListResult(jobResultDto.getJobDtoList(), page.getTotalCount());
         return listResult;
     }
@@ -39,7 +42,7 @@ public class PageServiceImpl implements PageService {
 
     @Override
     public ListResult diaryList(String tenantId, Page page, String jobOwner) {
-        LogResultDto logResultDto = logApplication.queryLog(tenantId, page, jobOwner);
+        LogResultDto logResultDto = logApplication.queryLog(tenant, page, jobOwner);
         ListResult listResult = new ListResult(logResultDto.getLogDtoList(), logResultDto.getPage().getTotalCount());
         return listResult;
     }

@@ -2,6 +2,7 @@ package com.jun.timer.domain.impl;
 
 import com.github.pagehelper.PageHelper;
 
+import com.jun.timer.constant.ConstantString;
 import com.jun.timer.dao.LogPOMapper;
 import com.jun.timer.dao.po.LogPO;
 import com.jun.timer.domain.LogDomain;
@@ -22,7 +23,7 @@ public class LogDomainImpl implements LogDomain {
     @Override
     public List<LogPO> getLogList(String tenantId, List<String> jobNames, Page page) {
         PageHelper.startPage(page.getPageNo(), page.getPageSize());
-        return logPOMapper.selectLogList(tenantId, jobNames);
+        return logPOMapper.selectLogList(ConstantString.tenant, jobNames);
     }
 
     @Override

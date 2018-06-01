@@ -1,6 +1,7 @@
 package com.jun.timer.controller;
 
 
+import com.jun.timer.constant.ConstantString;
 import com.jun.timer.dto.ListResult;
 import com.jun.timer.dto.Page;
 import com.jun.timer.service.PageService;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/")
 public class PageController {
-    private static final String tenantId = "1";
+    private static final String tenantId = ConstantString.tenant;
     @Autowired
     private PageService pageService;
 

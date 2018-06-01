@@ -2,6 +2,7 @@ package com.jun.timer.controller;
 
 
 
+import com.jun.timer.constant.ConstantString;
 import com.jun.timer.dto.JobDto;
 import com.jun.timer.dto.Page;
 import com.jun.timer.service.JobService;
@@ -17,7 +18,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api")
 public class JobController {
-    private static final String tenantId="1";
+    private static final String tenantId= ConstantString.tenant;
 
     @Autowired
     private JobService jobService;

@@ -3,6 +3,7 @@ package com.jun.timer.application.impl;
 import com.github.pagehelper.PageInfo;
 
 import com.jun.timer.application.JobApplication;
+import com.jun.timer.constant.ConstantString;
 import com.jun.timer.dao.po.JobPO;
 import com.jun.timer.domain.JobDomain;
 import com.jun.timer.dto.JobDto;
@@ -25,10 +26,11 @@ import java.util.stream.Collectors;
 public class JobApplicationImpl implements JobApplication {
     @Autowired
     private JobDomain jobDomain;
+
     @Override
     public JobResultDto getJobList(String tenantId, Page page ,String jobOwner) {
         List<JobDto> jobDtoList = new ArrayList<>();
-        List<JobPO> jobPOList = jobDomain.queryJobList(tenantId, jobOwner, page);
+        List<JobPO> jobPOList = jobDomain.queryJobList(ConstantString.tenant, null, page);
         PageInfo pageInfo = new PageInfo(jobPOList);
         page.setTotalCount((int)pageInfo.getTotal());
         if(CollectionUtils.isNotEmpty(jobPOList)) {

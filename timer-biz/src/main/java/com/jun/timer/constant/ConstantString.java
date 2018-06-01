@@ -4,6 +4,10 @@ package com.jun.timer.constant;
  * Created by xunaiyang on 2017/7/16.
  */
 public class ConstantString {
+    //没接入配置中心租户暂时写死
+    public static final String tenant= "1";
+
+
     public static final String LOG_TEMPLATE = "应用名：{0} \n任务名：{1} \n执行类：{2} \n执行方法：{3} \n执行参数：{4} \n调度结果：{5} ";
 
     public static final String APP_MESSAGE_TEMPLATE = "您的应用[{0}]所对应的机器已全部下线，您的任务[{1}]将无法被调度，请及时检查应用状态！！！";

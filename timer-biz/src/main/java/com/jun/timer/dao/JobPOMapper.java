@@ -22,7 +22,7 @@ public interface JobPOMapper {
 
     int updateStatus(@Param("id") Integer id, @Param("status") Boolean status);
 
-    List<JobPO> selectJobList(@Param("tenantId") String tenantId/*, @Param("jobOwner") String jobOwner*/);
+    List<JobPO> selectJobList(@Param("tenantId") String tenantId,@Param("jobOwner") String jobOwner);
 
     List<JobPO> selectJobListByAppName(@Param("appName") String appName);
 
