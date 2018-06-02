@@ -226,8 +226,15 @@
   <select id="selectJobList" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from Job where tenantId = #{tenantId,jdbcType=VARCHAR} AND (jobType = 0 OR (jobOwner = #{jobOwner,jdbcType=VARCHAR})) ORDER BY createTime DESC
+    from Job where tenantId = #{tenantId,jdbcType=VARCHAR} ORDER BY createTime DESC
   </select>
+
+ <!-- <select id="selectJobList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from Job where tenantId = #{tenantId,jdbcType=VARCHAR} /*AND (jobType = 0 OR (jobOwner = #{jobOwner,jdbcType=VARCHAR}))*/ ORDER BY createTime DESC
+  </select>
+-->
 
   <select id="selectJobListByAppName" parameterType="java.lang.String" resultMap="BaseResultMap">
     select

@@ -127,7 +127,7 @@ public class ExecutorBizImpl implements ExecutorBiz, Closeable {
 
 
         private void executeJob(Object jobCallBack) {
-           // Transaction t = Cat.newTransaction("business call", "start business");
+            // Transaction t = Cat.newTransaction("business call", "start business");
             Method m = methodMap.get(jobParams.getMethodName());
             Assert.notNull(m, "business method not found");
             Clock clock = m.getAnnotation(Clock.class);
@@ -149,7 +149,7 @@ public class ExecutorBizImpl implements ExecutorBiz, Closeable {
                     }
                 }
 
-             //   t.setStatus(Transaction.SUCCESS);
+                //   t.setStatus(Transaction.SUCCESS);
             } catch (Exception e) {
                 /*job执行异常的时候 执行客户端 fail 方法*/
                 try {
@@ -167,17 +167,17 @@ public class ExecutorBizImpl implements ExecutorBiz, Closeable {
                 } catch (IllegalAccessException e1) {
                     e1.printStackTrace();
                 }
-               // t.setStatus(e);
+                // t.setStatus(e);
                 try {
                     if (log.isInfoEnabled()) {
                         log.info("business error");
                     }
                     registerService.jobExecutionResult(jobParams.getLogId(), Result.EXECUTE_FAIL.getCode());
                 } catch (IOException e1) {
-                  //  t.setStatus(e1);
+                    //  t.setStatus(e1);
                 }
             } finally {
-               // t.complete();
+                // t.complete();
             }
         }
     }

@@ -30,7 +30,7 @@ public class JobApplicationImpl implements JobApplication {
     @Override
     public JobResultDto getJobList(String tenantId, Page page ,String jobOwner) {
         List<JobDto> jobDtoList = new ArrayList<>();
-        List<JobPO> jobPOList = jobDomain.queryJobList(ConstantString.tenant, null, page);
+        List<JobPO> jobPOList = jobDomain.queryJobList(ConstantString.tenant, jobOwner, page);
         PageInfo pageInfo = new PageInfo(jobPOList);
         page.setTotalCount((int)pageInfo.getTotal());
         if(CollectionUtils.isNotEmpty(jobPOList)) {

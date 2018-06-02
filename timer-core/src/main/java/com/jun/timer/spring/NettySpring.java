@@ -7,6 +7,7 @@ import com.jun.timer.server.NettyServer;
 import com.jun.timer.server.NettyServerFactory;
 import com.jun.timer.server.ServerService;
 import com.jun.timer.service.RegisterService;
+import com.jun.timer.utils.AopTargetUtils;
 import com.jun.timer.utils.IPUtils;
 import com.jun.timer.utils.PropertiesUtil;
 import org.slf4j.Logger;
@@ -15,8 +16,11 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextRefreshedEvent;
 
 import java.lang.reflect.Method;
+import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -27,16 +31,15 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * 17/7/5 下午3:47.
  * des:
  */
-public class NettySpring implements InitializingBean, DisposableBean, BeanPostProcessor {
+public class NettySpring implements DisposableBean, ApplicationListener<ContextRefreshedEvent> {
     Logger logger = LoggerFactory.getLogger(NettySpring.class);
     private String address;
     private int port = 9100;
     private static AtomicBoolean flag = new AtomicBoolean(false);
+    private static AtomicBoolean registered = new AtomicBoolean(false);
 
     private ServerService serverService;
     private final String appName = PropertiesUtil.getPropertyValueByKey("app.name");
-
-
 
     public String getAddress() {
         if (address == null) {
@@ -73,22 +76,28 @@ public class NettySpring implements InitializingBean, DisposableBean, BeanPostPr
         RegisterService registerService = ApplicationContextUtil.getBean(RegisterService.class);
         registerService.unRegister(IPUtils.getIpPort(port), appName);
         serverService.stop();
-        if (logger.isInfoEnabled()) logger.info("服务下线成功!");
+        if (logger.isInfoEnabled()) {
+            logger.info("服务下线成功!");
+        }
 
     }
 
     /*服务注册*/
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        if(flag.compareAndSet(false,true)){
-            RegisterService registerService = ApplicationContextUtil.getBean(RegisterService.class);;
+    public void register() throws Exception {
+        if (flag.compareAndSet(false, true)) {
+            RegisterService registerService = ApplicationContextUtil.getBean(RegisterService.class);
+            ;
 
-            if (logger.isInfoEnabled()) logger.info("获取APP名字成功！[{}]", appName);
+            if (logger.isInfoEnabled()) {
+                logger.info("获取APP名字成功！[{}]", appName);
+            }
             registerService.register(IPUtils.getIpPort(port), appName);
-            if (logger.isInfoEnabled()) logger.info("服务注册成功!");
+            if (logger.isInfoEnabled()) {
+                logger.info("服务注册成功!");
+            }
             ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
             // 第二个参数为首次执行的延时时间，第三个参数为定时执行的间隔时间
-            service.scheduleAtFixedRate(()->{
+            service.scheduleAtFixedRate(() -> {
                 try {
                     registerService.heartbeat(appName, IPUtils.getIpPort(port));
                 } catch (Exception e) {
@@ -98,26 +107,47 @@ public class NettySpring implements InitializingBean, DisposableBean, BeanPostPr
         }
     }
 
-    @Override
-    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        return bean;
-    }
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws Exception {
+        Object targetBean= AopTargetUtils.getTarget(bean);
+        Class clazz =targetBean.getClass();
 
-    @Override
-    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        Method[] methods = bean.getClass().getMethods();
+        Timer timer = (Timer) clazz.getAnnotation(Timer.class);
+        Method[] methods = clazz.getMethods();
         for (Method method : methods) {
             Clock clock = method.getAnnotation(Clock.class);
             if (clock != null) {
-                Class clazz = bean.getClass();
-                NettyServerFactory.beanMapping.put(clazz.getClass().getName(), bean);
-                Timer timer = (Timer) clazz.getAnnotation(Timer.class);
-                if (timer.value() != null){
+                NettyServerFactory.beanMapping.put(clazz.getName(), bean);
+                if (timer.value() != null) {
                     NettyServerFactory.beanMapping.put(timer.value(), bean);
                 }
 
             }
         }
         return bean;
+    }
+
+
+    @Override
+    public void onApplicationEvent(ContextRefreshedEvent event) {
+        logger.info("服务注册成功!");
+        if (registered.compareAndSet(false, true)) {
+            try {
+                register();
+            } catch (Exception e) {
+                logger.error(e.getMessage());
+                System.exit(1);
+            }
+            Map<String, Object> beans = event.getApplicationContext().getBeansWithAnnotation(Timer.class);
+            beans.forEach((beanName, bean) -> {
+                try {
+                    postProcessAfterInitialization(bean, beanName);
+                } catch (Exception e) {
+                    logger.error("----aop 获取原始类失败");
+
+                    System.exit(1);
+
+                }
+            });
+        }
     }
 }

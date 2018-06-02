@@ -49,7 +49,7 @@ public class JobDomainImpl implements JobDomain {
     @Override
     public List<JobPO> queryJobList(String tenantId, String jobOwner, Page page) {
         PageHelper.startPage(page.getPageNo(), page.getPageSize());
-        return jobPOMapper.selectJobList(ConstantString.tenant,jobOwner);
+        return jobPOMapper.selectJobList(ConstantString.tenant);
     }
 
     @Override
