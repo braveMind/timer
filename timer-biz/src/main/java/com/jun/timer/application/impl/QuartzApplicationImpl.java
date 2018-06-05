@@ -57,7 +57,8 @@ public class QuartzApplicationImpl implements QuartzApplication {
                     .withIdentity(jobDto.getJobName(), jobDto.getAppName()).build();
             CronTrigger trigger = TriggerBuilder.newTrigger()
                     .withIdentity(jobDto.getJobName(), jobDto.getAppName())
-                    .withSchedule(CronScheduleBuilder.cronSchedule(jobDto.getCron()))
+                    .withSchedule(CronScheduleBuilder.cronSchedule(jobDto.getCron())
+                            .withMisfireHandlingInstructionDoNothing())
                     .build();
             quartzScheduler.scheduleJob(jobDetail, trigger);
             JobPO jobPO = new JobPO();
@@ -84,7 +85,8 @@ public class QuartzApplicationImpl implements QuartzApplication {
                 try {
                     TriggerKey triggerKey = TriggerKey.triggerKey(jobPO.getJobName(), jobPO.getAppName());
                     CronTrigger trigger = (CronTrigger) quartzScheduler.getTrigger(triggerKey);
-                    trigger = trigger.getTriggerBuilder().withSchedule(CronScheduleBuilder.cronSchedule(time)).build();
+                    trigger = trigger.getTriggerBuilder().withSchedule(CronScheduleBuilder.cronSchedule(time)
+                            .withMisfireHandlingInstructionDoNothing()).build();
                     quartzScheduler.rescheduleJob(TriggerKey
                             .triggerKey(jobPO.getJobName(), jobPO.getAppName()), trigger);
                     if (!jobPO.getStatus() && CollectionUtils.isEmpty(addressList)) {
@@ -122,7 +124,7 @@ public class QuartzApplicationImpl implements QuartzApplication {
                     try {
                         TriggerKey triggerKey = TriggerKey.triggerKey(jobPO.getJobName(), jobPO.getAppName());
                         CronTrigger trigger = (CronTrigger) quartzScheduler.getTrigger(triggerKey);
-                        trigger = trigger.getTriggerBuilder().withSchedule(CronScheduleBuilder.cronSchedule(jobDto.getCron())).build();
+                        trigger = trigger.getTriggerBuilder().withSchedule(CronScheduleBuilder.cronSchedule(jobDto.getCron()).withMisfireHandlingInstructionDoNothing()).build();
                         quartzScheduler.rescheduleJob(TriggerKey
                                 .triggerKey(jobPO.getJobName(), jobPO.getAppName()), trigger);
                         if (!jobPO.getStatus() && CollectionUtils.isEmpty(addressList)) {
