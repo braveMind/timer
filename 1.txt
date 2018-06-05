@@ -1,607 +1,0 @@
-[INFO] Scanning for projects...
-[WARNING] 
-[WARNING] Some problems were encountered while building the effective model for com.jun.timer:timer-web:war:1.0.0-SNAPSHOT
-[WARNING] The expression ${artifactId} is deprecated. Please use ${project.artifactId} instead.
-[WARNING] The expression ${version} is deprecated. Please use ${project.version} instead.
-[WARNING] 
-[WARNING] Some problems were encountered while building the effective model for com.jun.timer:timer-service:jar:1.0.0-SNAPSHOT
-[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> duplicate declaration of version 3.8.1 @ line 58, column 17
-[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-surefire-plugin is missing. @ line 75, column 15
-[WARNING] The expression ${artifactId} is deprecated. Please use ${project.artifactId} instead.
-[WARNING] The expression ${version} is deprecated. Please use ${project.version} instead.
-[WARNING] 
-[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
-[WARNING] 
-[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
-[WARNING] 
-[INFO] ------------------------------------------------------------------------
-[INFO] Reactor Build Order:
-[INFO] 
-[INFO] timer
-[INFO] timer-core
-[INFO] timer-biz
-[INFO] timer-service
-[INFO] timer-web Maven Webapp
-Downloading: http://pixel.sankuai.com/repository/mtdp/org/jvnet/hudson/tools/maven-metadata.xml
-Downloading: http://pixel.sankuai.com/repository/mtdp/org/unidal/maven/plugins/maven-metadata.xml
-Downloading: http://pixel.sankuai.com/repository/mtdp/org/apache/maven/plugins/maven-metadata.xml
-Downloading: http://pixel.sankuai.com/repository/mtdp/com/dianping/maven/plugins/maven-metadata.xml
-3/14 KB   301/301 B   812/812 B   3/14 KB   301/301 B   812/812 B   3/14 KB   301/301 B   812/812 B   7/14 KB   301/301 B   812/812 B   11/14 KB   301/301 B   812/812 B   14/14 KB                                                                                                            Downloaded: http://pixel.sankuai.com/repository/mtdp/com/dianping/maven/plugins/maven-metadata.xml (812 B at 1.6 KB/sec)
-Downloaded: http://pixel.sankuai.com/repository/mtdp/org/unidal/maven/plugins/maven-metadata.xml (301 B at 0.6 KB/sec)
-Downloaded: http://pixel.sankuai.com/repository/mtdp/org/apache/maven/plugins/maven-metadata.xml (14 KB at 26.7 KB/sec)
-Downloading: http://pixel.sankuai.com/repository/mtdp/org/codehaus/mojo/maven-metadata.xml
-3/20 KB                            7/20 KB   11/20 KB   14/20 KB   16/20 KB   20/20 KB   20/20 KB              Downloaded: http://pixel.sankuai.com/repository/mtdp/org/codehaus/mojo/maven-metadata.xml (20 KB at 34.1 KB/sec)
-366/366 B               Downloaded: http://pixel.sankuai.com/repository/mtdp/org/jvnet/hudson/tools/maven-metadata.xml (366 B at 0.3 KB/sec)
-[INFO] ------------------------------------------------------------------------
-[INFO] Reactor Summary:
-[INFO] 
-[INFO] timer .............................................. SKIPPED
-[INFO] timer-core ......................................... SKIPPED
-[INFO] timer-biz .......................................... SKIPPED
-[INFO] timer-service ...................................... SKIPPED
-[INFO] timer-web Maven Webapp ............................. SKIPPED
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 1.624 s
-[INFO] Finished at: 2018-06-01T17:31:09+08:00
-[INFO] Final Memory: 12M/309M
-[INFO] ------------------------------------------------------------------------
-[ERROR] No plugin found for prefix 'denpendency' in the current project and in the plugin groups [org.apache.maven.plugins, org.unidal.maven.plugins, com.dianping.maven.plugins, org.jvnet.hudson.tools, org.codehaus.mojo] available from the repositories [local (/Users/jun/.m2/repository), meituan-dianping (http://pixel.sankuai.com/repository/mtdp)] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/NoPluginFoundForPrefixException
-[INFO] Scanning for projects...
-[WARNING] 
-[WARNING] Some problems were encountered while building the effective model for com.jun.timer:timer-web:war:1.0.0-SNAPSHOT
-[WARNING] The expression ${artifactId} is deprecated. Please use ${project.artifactId} instead.
-[WARNING] The expression ${version} is deprecated. Please use ${project.version} instead.
-[WARNING] 
-[WARNING] Some problems were encountered while building the effective model for com.jun.timer:timer-service:jar:1.0.0-SNAPSHOT
-[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> duplicate declaration of version 3.8.1 @ line 58, column 17
-[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-surefire-plugin is missing. @ line 75, column 15
-[WARNING] The expression ${artifactId} is deprecated. Please use ${project.artifactId} instead.
-[WARNING] The expression ${version} is deprecated. Please use ${project.version} instead.
-[WARNING] 
-[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
-[WARNING] 
-[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
-[WARNING] 
-[INFO] ------------------------------------------------------------------------
-[INFO] Reactor Build Order:
-[INFO] 
-[INFO] timer
-[INFO] timer-core
-[INFO] timer-biz
-[INFO] timer-service
-[INFO] timer-web Maven Webapp
-Downloading: http://pixel.sankuai.com/repository/mtdp/com/dianping/maven/plugins/maven-metadata.xml
-Downloading: http://pixel.sankuai.com/repository/mtdp/org/unidal/maven/plugins/maven-metadata.xml
-Downloading: http://pixel.sankuai.com/repository/mtdp/org/jvnet/hudson/tools/maven-metadata.xml
-Downloading: http://pixel.sankuai.com/repository/mtdp/org/apache/maven/plugins/maven-metadata.xml
-301/301 B   3/14 KB   812/812 B   301/301 B   3/14 KB   812/812 B   301/301 B   3/14 KB   812/812 B   301/301 B   7/14 KB   812/812 B   301/301 B   11/14 KB   812/812 B   301/301 B   14/14 KB   812/812 B                                                                                                            Downloaded: http://pixel.sankuai.com/repository/mtdp/org/apache/maven/plugins/maven-metadata.xml (14 KB at 26.5 KB/sec)
-Downloaded: http://pixel.sankuai.com/repository/mtdp/org/unidal/maven/plugins/maven-metadata.xml (301 B at 0.6 KB/sec)
-Downloaded: http://pixel.sankuai.com/repository/mtdp/com/dianping/maven/plugins/maven-metadata.xml (812 B at 1.6 KB/sec)
-Downloading: http://pixel.sankuai.com/repository/mtdp/org/codehaus/mojo/maven-metadata.xml
-366/366 B                                      Downloaded: http://pixel.sankuai.com/repository/mtdp/org/jvnet/hudson/tools/maven-metadata.xml (366 B at 0.3 KB/sec)
-2/20 KB     3/20 KB   7/20 KB   11/20 KB   14/20 KB   16/20 KB   19/20 KB   20/20 KB              Downloaded: http://pixel.sankuai.com/repository/mtdp/org/codehaus/mojo/maven-metadata.xml (20 KB at 10.0 KB/sec)
-[INFO] ------------------------------------------------------------------------
-[INFO] Reactor Summary:
-[INFO] 
-[INFO] timer .............................................. SKIPPED
-[INFO] timer-core ......................................... SKIPPED
-[INFO] timer-biz .......................................... SKIPPED
-[INFO] timer-service ...................................... SKIPPED
-[INFO] timer-web Maven Webapp ............................. SKIPPED
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 3.005 s
-[INFO] Finished at: 2018-06-01T17:32:18+08:00
-[INFO] Final Memory: 11M/245M
-[INFO] ------------------------------------------------------------------------
-[ERROR] No plugin found for prefix 'denpendency' in the current project and in the plugin groups [org.apache.maven.plugins, org.unidal.maven.plugins, com.dianping.maven.plugins, org.jvnet.hudson.tools, org.codehaus.mojo] available from the repositories [local (/Users/jun/.m2/repository), meituan-dianping (http://pixel.sankuai.com/repository/mtdp)] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/NoPluginFoundForPrefixException
-[INFO] Scanning for projects...
-[WARNING] 
-[WARNING] Some problems were encountered while building the effective model for com.jun.timer:timer-web:war:1.0.0-SNAPSHOT
-[WARNING] The expression ${artifactId} is deprecated. Please use ${project.artifactId} instead.
-[WARNING] The expression ${version} is deprecated. Please use ${project.version} instead.
-[WARNING] 
-[WARNING] Some problems were encountered while building the effective model for com.jun.timer:timer-service:jar:1.0.0-SNAPSHOT
-[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> duplicate declaration of version 3.8.1 @ line 58, column 17
-[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-surefire-plugin is missing. @ line 75, column 15
-[WARNING] The expression ${artifactId} is deprecated. Please use ${project.artifactId} instead.
-[WARNING] The expression ${version} is deprecated. Please use ${project.version} instead.
-[WARNING] 
-[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
-[WARNING] 
-[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
-[WARNING] 
-[INFO] ------------------------------------------------------------------------
-[INFO] Reactor Build Order:
-[INFO] 
-[INFO] timer
-[INFO] timer-core
-[INFO] timer-biz
-[INFO] timer-service
-[INFO] timer-web Maven Webapp
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building timer 1.0.0-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
-[INFO] 
-[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ jun-timer ---
-[INFO] com.jun.timer:jun-timer:pom:1.0.0-SNAPSHOT
-[INFO] +- junit:junit:jar:4.12:test
-[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
-[INFO] \- org.slf4j:slf4j-log4j12:jar:1.7.19:compile
-[INFO]    +- org.slf4j:slf4j-api:jar:1.7.19:compile
-[INFO]    \- log4j:log4j:jar:1.2.17:compile
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building timer-core 1.0.0-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
-[INFO] 
-[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ timer-core ---
-[INFO] com.jun.timer:timer-core:jar:1.0.0-SNAPSHOT
-[INFO] +- io.netty:netty-all:jar:4.1.13.Final:compile
-[INFO] +- org.springframework:spring-context:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.springframework:spring-aop:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.springframework:spring-beans:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.springframework:spring-core:jar:4.3.8.RELEASE:compile
-[INFO] |  |  \- commons-logging:commons-logging:jar:1.2:compile
-[INFO] |  \- org.springframework:spring-expression:jar:4.3.8.RELEASE:compile
-[INFO] +- org.apache.commons:commons-lang3:jar:3.4:compile
-[INFO] +- org.apache.httpcomponents:httpclient:jar:4.5.2:compile
-[INFO] |  +- org.apache.httpcomponents:httpcore:jar:4.4.4:compile
-[INFO] |  \- commons-codec:commons-codec:jar:1.9:compile
-[INFO] +- org.apache.httpcomponents:httpmime:jar:4.5.2:compile
-[INFO] +- com.google.guava:guava:jar:18.0:compile
-[INFO] +- com.google.code.gson:gson:jar:2.8.0:compile
-[INFO] +- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0:compile
-[INFO] +- junit:junit:jar:4.12:test
-[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
-[INFO] \- org.slf4j:slf4j-log4j12:jar:1.7.19:compile
-[INFO]    +- org.slf4j:slf4j-api:jar:1.7.19:compile
-[INFO]    \- log4j:log4j:jar:1.2.17:compile
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building timer-biz 1.0.0-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
-Downloading: http://pixel.sankuai.com/repository/mtdp/com/jun/timer/timer-core/1.0.0-SNAPSHOT/maven-metadata.xml
-[INFO] 
-[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ timer-biz ---
-[INFO] com.jun.timer:timer-biz:jar:1.0.0-SNAPSHOT
-[INFO] +- com.jun.timer:timer-core:jar:1.0.0-SNAPSHOT:compile
-[INFO] |  +- io.netty:netty-all:jar:4.1.13.Final:compile
-[INFO] |  +- org.springframework:spring-context:jar:4.3.8.RELEASE:compile
-[INFO] |  |  +- org.springframework:spring-aop:jar:4.3.8.RELEASE:compile
-[INFO] |  |  \- org.springframework:spring-expression:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.apache.commons:commons-lang3:jar:3.4:compile
-[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.5.2:compile
-[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.4.4:compile
-[INFO] |  |  \- commons-codec:commons-codec:jar:1.9:compile
-[INFO] |  +- org.apache.httpcomponents:httpmime:jar:4.5.2:compile
-[INFO] |  +- com.google.guava:guava:jar:18.0:compile
-[INFO] |  +- com.google.code.gson:gson:jar:2.8.0:compile
-[INFO] |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0:compile
-[INFO] +- commons-dbcp:commons-dbcp:jar:1.4:compile
-[INFO] |  \- commons-pool:commons-pool:jar:1.5.4:compile
-[INFO] +- org.quartz-scheduler:quartz:jar:2.3.0:compile
-[INFO] |  +- com.mchange:c3p0:jar:0.9.5.2:compile
-[INFO] |  +- com.mchange:mchange-commons-java:jar:0.2.11:compile
-[INFO] |  +- com.zaxxer:HikariCP-java6:jar:2.3.13:compile
-[INFO] |  \- org.slf4j:slf4j-api:jar:1.7.7:compile
-[INFO] +- org.springframework:spring-jdbc:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.springframework:spring-beans:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.springframework:spring-core:jar:4.3.8.RELEASE:compile
-[INFO] |  |  \- commons-logging:commons-logging:jar:1.2:compile
-[INFO] |  \- org.springframework:spring-tx:jar:4.3.8.RELEASE:compile
-[INFO] +- org.springframework:spring-context-support:jar:4.3.8.RELEASE:compile
-[INFO] +- mysql:mysql-connector-java:jar:5.1.37:compile
-[INFO] +- org.mybatis:mybatis:jar:3.2.8:compile
-[INFO] +- org.mybatis:mybatis-spring:jar:1.2.3:compile
-[INFO] +- com.github.pagehelper:pagehelper:jar:4.1.6:compile
-[INFO] |  \- com.github.jsqlparser:jsqlparser:jar:0.9.5:compile
-[INFO] +- commons-collections:commons-collections:jar:3.2.2:compile
-[INFO] +- junit:junit:jar:4.12:test
-[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
-[INFO] \- org.slf4j:slf4j-log4j12:jar:1.7.19:compile
-[INFO]    \- log4j:log4j:jar:1.2.17:compile
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building timer-service 1.0.0-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
-Downloading: http://pixel.sankuai.com/repository/mtdp/com/jun/timer/timer-biz/1.0.0-SNAPSHOT/maven-metadata.xml
-[INFO] 
-[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ timer-service ---
-[INFO] com.jun.timer:timer-service:jar:1.0.0-SNAPSHOT
-[INFO] +- junit:junit:jar:3.8.1:test
-[INFO] +- org.springframework:spring-web:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.springframework:spring-aop:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.springframework:spring-beans:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.springframework:spring-context:jar:4.3.8.RELEASE:compile
-[INFO] |  \- org.springframework:spring-core:jar:4.3.8.RELEASE:compile
-[INFO] |     \- commons-logging:commons-logging:jar:1.2:compile
-[INFO] +- com.jun.timer:timer-biz:jar:1.0.0-SNAPSHOT:compile
-[INFO] |  +- com.jun.timer:timer-core:jar:1.0.0-SNAPSHOT:compile
-[INFO] |  |  +- io.netty:netty-all:jar:4.1.13.Final:compile
-[INFO] |  |  +- org.apache.commons:commons-lang3:jar:3.4:compile
-[INFO] |  |  +- org.apache.httpcomponents:httpclient:jar:4.5.2:compile
-[INFO] |  |  |  +- org.apache.httpcomponents:httpcore:jar:4.4.4:compile
-[INFO] |  |  |  \- commons-codec:commons-codec:jar:1.9:compile
-[INFO] |  |  +- org.apache.httpcomponents:httpmime:jar:4.5.2:compile
-[INFO] |  |  +- com.google.guava:guava:jar:18.0:compile
-[INFO] |  |  \- com.google.code.gson:gson:jar:2.8.0:compile
-[INFO] |  +- commons-dbcp:commons-dbcp:jar:1.4:compile
-[INFO] |  |  \- commons-pool:commons-pool:jar:1.5.4:compile
-[INFO] |  +- org.quartz-scheduler:quartz:jar:2.3.0:compile
-[INFO] |  |  +- com.mchange:c3p0:jar:0.9.5.2:compile
-[INFO] |  |  +- com.mchange:mchange-commons-java:jar:0.2.11:compile
-[INFO] |  |  \- com.zaxxer:HikariCP-java6:jar:2.3.13:compile
-[INFO] |  +- org.springframework:spring-jdbc:jar:4.3.8.RELEASE:compile
-[INFO] |  |  \- org.springframework:spring-tx:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.springframework:spring-context-support:jar:4.3.8.RELEASE:compile
-[INFO] |  +- mysql:mysql-connector-java:jar:5.1.37:compile
-[INFO] |  +- org.mybatis:mybatis:jar:3.2.8:compile
-[INFO] |  +- org.mybatis:mybatis-spring:jar:1.2.3:compile
-[INFO] |  +- com.github.pagehelper:pagehelper:jar:4.1.6:compile
-[INFO] |  |  \- com.github.jsqlparser:jsqlparser:jar:0.9.5:compile
-[INFO] |  \- commons-collections:commons-collections:jar:3.2.2:compile
-[INFO] +- org.springframework:spring-webmvc:jar:4.3.8.RELEASE:compile
-[INFO] |  \- org.springframework:spring-expression:jar:4.3.8.RELEASE:compile
-[INFO] +- org.springframework:spring-test:jar:4.3.8.RELEASE:test
-[INFO] +- com.fasterxml.jackson.core:jackson-core:jar:2.8.8:compile
-[INFO] +- com.fasterxml.jackson.core:jackson-databind:jar:2.8.8:compile
-[INFO] |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.8.0:compile
-[INFO] \- org.slf4j:slf4j-log4j12:jar:1.7.19:compile
-[INFO]    +- org.slf4j:slf4j-api:jar:1.7.19:compile
-[INFO]    \- log4j:log4j:jar:1.2.17:compile
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building timer-web Maven Webapp 1.0.0-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
-Downloading: http://pixel.sankuai.com/repository/mtdp/com/jun/timer/timer-service/1.0.0-SNAPSHOT/maven-metadata.xml
-Downloading: http://pixel.sankuai.com/repository/mtdp/com/jun/timer/timer-service/1.0.0-SNAPSHOT/timer-service-1.0.0-SNAPSHOT.jar
-[INFO] ------------------------------------------------------------------------
-[INFO] Reactor Summary:
-[INFO] 
-[INFO] timer .............................................. SUCCESS [  0.687 s]
-[INFO] timer-core ......................................... SUCCESS [  0.071 s]
-[INFO] timer-biz .......................................... SUCCESS [  0.642 s]
-[INFO] timer-service ...................................... SUCCESS [  0.287 s]
-[INFO] timer-web Maven Webapp ............................. FAILURE [  0.543 s]
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 2.471 s
-[INFO] Finished at: 2018-06-01T17:32:27+08:00
-[INFO] Final Memory: 16M/303M
-[INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal on project timer-web: Could not resolve dependencies for project com.jun.timer:timer-web:war:1.0.0-SNAPSHOT: Could not find artifact com.jun.timer:timer-service:jar:1.0.0-SNAPSHOT in meituan-dianping (http://pixel.sankuai.com/repository/mtdp) -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
-[ERROR] 
-[ERROR] After correcting the problems, you can resume the build with the command
-[ERROR]   mvn <goals> -rf :timer-web
-[INFO] Scanning for projects...
-[WARNING] 
-[WARNING] Some problems were encountered while building the effective model for com.jun.timer:timer-web:war:1.0.0-SNAPSHOT
-[WARNING] The expression ${artifactId} is deprecated. Please use ${project.artifactId} instead.
-[WARNING] The expression ${version} is deprecated. Please use ${project.version} instead.
-[WARNING] 
-[WARNING] Some problems were encountered while building the effective model for com.jun.timer:timer-service:jar:1.0.0-SNAPSHOT
-[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> duplicate declaration of version 3.8.1 @ line 58, column 17
-[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-surefire-plugin is missing. @ line 75, column 15
-[WARNING] The expression ${artifactId} is deprecated. Please use ${project.artifactId} instead.
-[WARNING] The expression ${version} is deprecated. Please use ${project.version} instead.
-[WARNING] 
-[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
-[WARNING] 
-[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
-[WARNING] 
-[INFO] ------------------------------------------------------------------------
-[INFO] Reactor Build Order:
-[INFO] 
-[INFO] timer
-[INFO] timer-core
-[INFO] timer-biz
-[INFO] timer-service
-[INFO] timer-web Maven Webapp
-Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-metadata.xml
-Downloading: https://repo.maven.apache.org/maven2/org/codehaus/mojo/maven-metadata.xml
-3/20 KB   3/14 KB   3/20 KB   3/14 KB   5/20 KB   5/14 KB   5/20 KB   5/14 KB   5/20 KB   8/14 KB   8/20 KB   8/14 KB   11/20 KB   8/14 KB   11/20 KB   11/14 KB   11/20 KB   13/14 KB   13/20 KB   13/14 KB   13/20 KB   14/14 KB   16/20 KB   14/14 KB   19/20 KB   14/14 KB   20/20 KB   14/14 KB                         Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-metadata.xml (14 KB at 8.4 KB/sec)
-                      Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/mojo/maven-metadata.xml (20 KB at 12.5 KB/sec)
-[INFO] ------------------------------------------------------------------------
-[INFO] Reactor Summary:
-[INFO] 
-[INFO] timer .............................................. SKIPPED
-[INFO] timer-core ......................................... SKIPPED
-[INFO] timer-biz .......................................... SKIPPED
-[INFO] timer-service ...................................... SKIPPED
-[INFO] timer-web Maven Webapp ............................. SKIPPED
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 2.181 s
-[INFO] Finished at: 2018-06-01T17:33:52+08:00
-[INFO] Final Memory: 9M/245M
-[INFO] ------------------------------------------------------------------------
-[ERROR] No plugin found for prefix 'dependnency' in the current project and in the plugin groups [org.apache.maven.plugins, org.codehaus.mojo] available from the repositories [local (/Users/jun/.m2/repository), central (https://repo.maven.apache.org/maven2)] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/NoPluginFoundForPrefixException
-[INFO] Scanning for projects...
-[WARNING] 
-[WARNING] Some problems were encountered while building the effective model for com.jun.timer:timer-web:war:1.0.0-SNAPSHOT
-[WARNING] The expression ${artifactId} is deprecated. Please use ${project.artifactId} instead.
-[WARNING] The expression ${version} is deprecated. Please use ${project.version} instead.
-[WARNING] 
-[WARNING] Some problems were encountered while building the effective model for com.jun.timer:timer-service:jar:1.0.0-SNAPSHOT
-[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> duplicate declaration of version 3.8.1 @ line 58, column 17
-[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-surefire-plugin is missing. @ line 75, column 15
-[WARNING] The expression ${artifactId} is deprecated. Please use ${project.artifactId} instead.
-[WARNING] The expression ${version} is deprecated. Please use ${project.version} instead.
-[WARNING] 
-[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
-[WARNING] 
-[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
-[WARNING] 
-[INFO] ------------------------------------------------------------------------
-[INFO] Reactor Build Order:
-[INFO] 
-[INFO] timer
-[INFO] timer-core
-[INFO] timer-biz
-[INFO] timer-service
-[INFO] timer-web Maven Webapp
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building timer 1.0.0-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
-[INFO] 
-[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ jun-timer ---
-Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/2.3/plexus-archiver-2.3.pom
-Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/2.3/plexus-archiver-2.3.pom (0 B at 0.0 KB/sec)
-Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/2.0.6/plexus-io-2.0.6.pom
-Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/2.0.6/plexus-io-2.0.6.pom (0 B at 0.0 KB/sec)
-Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0.9/plexus-utils-3.0.9.pom
-Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0.9/plexus-utils-3.0.9.pom (0 B at 0.0 KB/sec)
-Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/2.0.2/maven-artifact-2.0.2.pom
-Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/2.0.2/maven-artifact-2.0.2.pom (0 B at 0.0 KB/sec)
-Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven/2.0.2/maven-2.0.2.pom
-Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven/2.0.2/maven-2.0.2.pom (0 B at 0.0 KB/sec)
-Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/1.1/plexus-utils-1.1.pom
-Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/1.1/plexus-utils-1.1.pom (0 B at 0.0 KB/sec)
-Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact-manager/2.0.2/maven-artifact-manager-2.0.2.pom
-Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact-manager/2.0.2/maven-artifact-manager-2.0.2.pom (0 B at 0.0 KB/sec)
-Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/2.0.2/maven-repository-metadata-2.0.2.pom
-Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/2.0.2/maven-repository-metadata-2.0.2.pom (0 B at 0.0 KB/sec)
-Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-project/2.0.5/maven-project-2.0.5.pom
-Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-project/2.0.5/maven-project-2.0.5.pom (0 B at 0.0 KB/sec)
-Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven/2.0.5/maven-2.0.5.pom
-Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven/2.0.5/maven-2.0.5.pom (0 B at 0.0 KB/sec)
-Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings/2.0.5/maven-settings-2.0.5.pom
-Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-settings/2.0.5/maven-settings-2.0.5.pom (0 B at 0.0 KB/sec)
-Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/2.0.5/maven-model-2.0.5.pom
-Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-model/2.0.5/maven-model-2.0.5.pom (0 B at 0.0 KB/sec)
-Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-profile/2.0.5/maven-profile-2.0.5.pom
-Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-profile/2.0.5/maven-profile-2.0.5.pom (0 B at 0.0 KB/sec)
-Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact-manager/2.0.5/maven-artifact-manager-2.0.5.pom
-Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact-manager/2.0.5/maven-artifact-manager-2.0.5.pom (0 B at 0.0 KB/sec)
-Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/2.0.5/maven-repository-metadata-2.0.5.pom
-Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/2.0.5/maven-repository-metadata-2.0.5.pom (0 B at 0.0 KB/sec)
-Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/2.0.5/maven-artifact-2.0.5.pom
-Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/2.0.5/maven-artifact-2.0.5.pom (0 B at 0.0 KB/sec)
-Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/2.3/plexus-archiver-2.3.jar
-Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0.9/plexus-utils-3.0.9.jar
-Downloading: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/2.0.6/plexus-io-2.0.6.jar
-Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-archiver/2.3/plexus-archiver-2.3.jar (0 B at 0.0 KB/sec)
-Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-io/2.0.6/plexus-io-2.0.6.jar (0 B at 0.0 KB/sec)
-Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0.9/plexus-utils-3.0.9.jar (0 B at 0.0 KB/sec)
-[INFO] com.jun.timer:jun-timer:pom:1.0.0-SNAPSHOT
-[INFO] +- junit:junit:jar:4.12:test
-[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
-[INFO] \- org.slf4j:slf4j-log4j12:jar:1.7.19:compile
-[INFO]    +- org.slf4j:slf4j-api:jar:1.7.19:compile
-[INFO]    \- log4j:log4j:jar:1.2.17:compile
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building timer-core 1.0.0-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
-[INFO] 
-[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ timer-core ---
-[INFO] com.jun.timer:timer-core:jar:1.0.0-SNAPSHOT
-[INFO] +- io.netty:netty-all:jar:4.1.13.Final:compile
-[INFO] +- org.springframework:spring-context:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.springframework:spring-aop:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.springframework:spring-beans:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.springframework:spring-core:jar:4.3.8.RELEASE:compile
-[INFO] |  |  \- commons-logging:commons-logging:jar:1.2:compile
-[INFO] |  \- org.springframework:spring-expression:jar:4.3.8.RELEASE:compile
-[INFO] +- org.apache.commons:commons-lang3:jar:3.4:compile
-[INFO] +- org.apache.httpcomponents:httpclient:jar:4.5.2:compile
-[INFO] |  +- org.apache.httpcomponents:httpcore:jar:4.4.4:compile
-[INFO] |  \- commons-codec:commons-codec:jar:1.9:compile
-[INFO] +- org.apache.httpcomponents:httpmime:jar:4.5.2:compile
-[INFO] +- com.google.guava:guava:jar:18.0:compile
-[INFO] +- com.google.code.gson:gson:jar:2.8.0:compile
-[INFO] +- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0:compile
-[INFO] +- junit:junit:jar:4.12:test
-[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
-[INFO] \- org.slf4j:slf4j-log4j12:jar:1.7.19:compile
-[INFO]    +- org.slf4j:slf4j-api:jar:1.7.19:compile
-[INFO]    \- log4j:log4j:jar:1.2.17:compile
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building timer-biz 1.0.0-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
-[INFO] 
-[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ timer-biz ---
-[INFO] com.jun.timer:timer-biz:jar:1.0.0-SNAPSHOT
-[INFO] +- com.jun.timer:timer-core:jar:1.0.0-SNAPSHOT:compile
-[INFO] |  +- io.netty:netty-all:jar:4.1.13.Final:compile
-[INFO] |  +- org.springframework:spring-context:jar:4.3.8.RELEASE:compile
-[INFO] |  |  +- org.springframework:spring-aop:jar:4.3.8.RELEASE:compile
-[INFO] |  |  \- org.springframework:spring-expression:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.apache.commons:commons-lang3:jar:3.4:compile
-[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.5.2:compile
-[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.4.4:compile
-[INFO] |  |  \- commons-codec:commons-codec:jar:1.9:compile
-[INFO] |  +- org.apache.httpcomponents:httpmime:jar:4.5.2:compile
-[INFO] |  +- com.google.guava:guava:jar:18.0:compile
-[INFO] |  +- com.google.code.gson:gson:jar:2.8.0:compile
-[INFO] |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0:compile
-[INFO] +- commons-dbcp:commons-dbcp:jar:1.4:compile
-[INFO] |  \- commons-pool:commons-pool:jar:1.5.4:compile
-[INFO] +- org.quartz-scheduler:quartz:jar:2.3.0:compile
-[INFO] |  +- com.mchange:c3p0:jar:0.9.5.2:compile
-[INFO] |  +- com.mchange:mchange-commons-java:jar:0.2.11:compile
-[INFO] |  +- com.zaxxer:HikariCP-java6:jar:2.3.13:compile
-[INFO] |  \- org.slf4j:slf4j-api:jar:1.7.7:compile
-[INFO] +- org.springframework:spring-jdbc:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.springframework:spring-beans:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.springframework:spring-core:jar:4.3.8.RELEASE:compile
-[INFO] |  |  \- commons-logging:commons-logging:jar:1.2:compile
-[INFO] |  \- org.springframework:spring-tx:jar:4.3.8.RELEASE:compile
-[INFO] +- org.springframework:spring-context-support:jar:4.3.8.RELEASE:compile
-[INFO] +- mysql:mysql-connector-java:jar:5.1.37:compile
-[INFO] +- org.mybatis:mybatis:jar:3.2.8:compile
-[INFO] +- org.mybatis:mybatis-spring:jar:1.2.3:compile
-[INFO] +- com.github.pagehelper:pagehelper:jar:4.1.6:compile
-[INFO] |  \- com.github.jsqlparser:jsqlparser:jar:0.9.5:compile
-[INFO] +- commons-collections:commons-collections:jar:3.2.2:compile
-[INFO] +- junit:junit:jar:4.12:test
-[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
-[INFO] \- org.slf4j:slf4j-log4j12:jar:1.7.19:compile
-[INFO]    \- log4j:log4j:jar:1.2.17:compile
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building timer-service 1.0.0-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
-[INFO] 
-[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ timer-service ---
-[INFO] com.jun.timer:timer-service:jar:1.0.0-SNAPSHOT
-[INFO] +- junit:junit:jar:3.8.1:test
-[INFO] +- org.springframework:spring-web:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.springframework:spring-aop:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.springframework:spring-beans:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.springframework:spring-context:jar:4.3.8.RELEASE:compile
-[INFO] |  \- org.springframework:spring-core:jar:4.3.8.RELEASE:compile
-[INFO] |     \- commons-logging:commons-logging:jar:1.2:compile
-[INFO] +- com.jun.timer:timer-biz:jar:1.0.0-SNAPSHOT:compile
-[INFO] |  +- com.jun.timer:timer-core:jar:1.0.0-SNAPSHOT:compile
-[INFO] |  |  +- io.netty:netty-all:jar:4.1.13.Final:compile
-[INFO] |  |  +- org.apache.commons:commons-lang3:jar:3.4:compile
-[INFO] |  |  +- org.apache.httpcomponents:httpclient:jar:4.5.2:compile
-[INFO] |  |  |  +- org.apache.httpcomponents:httpcore:jar:4.4.4:compile
-[INFO] |  |  |  \- commons-codec:commons-codec:jar:1.9:compile
-[INFO] |  |  +- org.apache.httpcomponents:httpmime:jar:4.5.2:compile
-[INFO] |  |  +- com.google.guava:guava:jar:18.0:compile
-[INFO] |  |  \- com.google.code.gson:gson:jar:2.8.0:compile
-[INFO] |  +- commons-dbcp:commons-dbcp:jar:1.4:compile
-[INFO] |  |  \- commons-pool:commons-pool:jar:1.5.4:compile
-[INFO] |  +- org.quartz-scheduler:quartz:jar:2.3.0:compile
-[INFO] |  |  +- com.mchange:c3p0:jar:0.9.5.2:compile
-[INFO] |  |  +- com.mchange:mchange-commons-java:jar:0.2.11:compile
-[INFO] |  |  \- com.zaxxer:HikariCP-java6:jar:2.3.13:compile
-[INFO] |  +- org.springframework:spring-jdbc:jar:4.3.8.RELEASE:compile
-[INFO] |  |  \- org.springframework:spring-tx:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.springframework:spring-context-support:jar:4.3.8.RELEASE:compile
-[INFO] |  +- mysql:mysql-connector-java:jar:5.1.37:compile
-[INFO] |  +- org.mybatis:mybatis:jar:3.2.8:compile
-[INFO] |  +- org.mybatis:mybatis-spring:jar:1.2.3:compile
-[INFO] |  +- com.github.pagehelper:pagehelper:jar:4.1.6:compile
-[INFO] |  |  \- com.github.jsqlparser:jsqlparser:jar:0.9.5:compile
-[INFO] |  \- commons-collections:commons-collections:jar:3.2.2:compile
-[INFO] +- org.springframework:spring-webmvc:jar:4.3.8.RELEASE:compile
-[INFO] |  \- org.springframework:spring-expression:jar:4.3.8.RELEASE:compile
-[INFO] +- org.springframework:spring-test:jar:4.3.8.RELEASE:test
-[INFO] +- com.fasterxml.jackson.core:jackson-core:jar:2.8.8:compile
-[INFO] +- com.fasterxml.jackson.core:jackson-databind:jar:2.8.8:compile
-[INFO] |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.8.0:compile
-[INFO] \- org.slf4j:slf4j-log4j12:jar:1.7.19:compile
-[INFO]    +- org.slf4j:slf4j-api:jar:1.7.19:compile
-[INFO]    \- log4j:log4j:jar:1.2.17:compile
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building timer-web Maven Webapp 1.0.0-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
-[INFO] 
-[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ timer-web ---
-[INFO] com.jun.timer:timer-web:war:1.0.0-SNAPSHOT
-[INFO] +- com.jun.timer:timer-service:jar:1.0.0-SNAPSHOT:compile
-[INFO] |  \- com.jun.timer:timer-biz:jar:1.0.0-SNAPSHOT:compile
-[INFO] |     +- com.jun.timer:timer-core:jar:1.0.0-SNAPSHOT:compile
-[INFO] |     |  +- io.netty:netty-all:jar:4.1.13.Final:compile
-[INFO] |     |  +- org.apache.commons:commons-lang3:jar:3.4:compile
-[INFO] |     |  +- org.apache.httpcomponents:httpclient:jar:4.5.2:compile
-[INFO] |     |  |  +- org.apache.httpcomponents:httpcore:jar:4.4.4:compile
-[INFO] |     |  |  \- commons-codec:commons-codec:jar:1.9:compile
-[INFO] |     |  +- org.apache.httpcomponents:httpmime:jar:4.5.2:compile
-[INFO] |     |  +- com.google.guava:guava:jar:18.0:compile
-[INFO] |     |  \- com.google.code.gson:gson:jar:2.8.0:compile
-[INFO] |     +- commons-dbcp:commons-dbcp:jar:1.4:compile
-[INFO] |     |  \- commons-pool:commons-pool:jar:1.5.4:compile
-[INFO] |     +- org.quartz-scheduler:quartz:jar:2.3.0:compile
-[INFO] |     |  +- com.mchange:c3p0:jar:0.9.5.2:compile
-[INFO] |     |  +- com.mchange:mchange-commons-java:jar:0.2.11:compile
-[INFO] |     |  \- com.zaxxer:HikariCP-java6:jar:2.3.13:compile
-[INFO] |     +- org.springframework:spring-jdbc:jar:4.3.8.RELEASE:compile
-[INFO] |     |  \- org.springframework:spring-tx:jar:4.3.8.RELEASE:compile
-[INFO] |     +- mysql:mysql-connector-java:jar:5.1.37:compile
-[INFO] |     +- org.mybatis:mybatis:jar:3.2.8:compile
-[INFO] |     +- org.mybatis:mybatis-spring:jar:1.2.3:compile
-[INFO] |     +- com.github.pagehelper:pagehelper:jar:4.1.6:compile
-[INFO] |     |  \- com.github.jsqlparser:jsqlparser:jar:0.9.5:compile
-[INFO] |     \- commons-collections:commons-collections:jar:3.2.2:compile
-[INFO] +- org.springframework:spring-web:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.springframework:spring-aop:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.springframework:spring-beans:jar:4.3.8.RELEASE:compile
-[INFO] |  +- org.springframework:spring-context:jar:4.3.8.RELEASE:compile
-[INFO] |  \- org.springframework:spring-core:jar:4.3.8.RELEASE:compile
-[INFO] |     \- commons-logging:commons-logging:jar:1.2:compile
-[INFO] +- org.springframework:spring-context-support:jar:4.3.8.RELEASE:compile
-[INFO] +- org.springframework:spring-webmvc:jar:4.3.8.RELEASE:compile
-[INFO] |  \- org.springframework:spring-expression:jar:4.3.8.RELEASE:compile
-[INFO] +- org.springframework:spring-test:jar:4.3.8.RELEASE:test
-[INFO] +- com.fasterxml.jackson.core:jackson-core:jar:2.8.8:compile
-[INFO] +- com.fasterxml.jackson.core:jackson-databind:jar:2.8.8:compile
-[INFO] |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.8.0:compile
-[INFO] +- org.freemarker:freemarker-gae:jar:2.3.26-incubating:compile
-[INFO] +- junit:junit:jar:4.12:test
-[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
-[INFO] \- org.slf4j:slf4j-log4j12:jar:1.7.19:compile
-[INFO]    +- org.slf4j:slf4j-api:jar:1.7.19:compile
-[INFO]    \- log4j:log4j:jar:1.2.17:compile
-[INFO] ------------------------------------------------------------------------
-[INFO] Reactor Summary:
-[INFO] 
-[INFO] timer .............................................. SUCCESS [  6.300 s]
-[INFO] timer-core ......................................... SUCCESS [  0.060 s]
-[INFO] timer-biz .......................................... SUCCESS [  0.058 s]
-[INFO] timer-service ...................................... SUCCESS [  0.029 s]
-[INFO] timer-web Maven Webapp ............................. SUCCESS [  0.020 s]
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 6.746 s
-[INFO] Finished at: 2018-06-01T17:34:47+08:00
-[INFO] Final Memory: 18M/246M
-[INFO] ------------------------------------------------------------------------
