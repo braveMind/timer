@@ -34,7 +34,7 @@ public class ExecutorBizImpl implements ExecutorBiz, Closeable {
 
     @Override
     public RpcResponse run(JobParams jobParams) {
-        executorService.execute(new Executor(jobParams, ApplicationContextUtil.getRegister());
+        executorService.execute(new Executor(jobParams, ApplicationContextUtil.getRegister()));
         return new RpcResponse(Result.SUCCESS, "客户端RPC调用成功！");
     }
 
@@ -92,15 +92,15 @@ public class ExecutorBizImpl implements ExecutorBiz, Closeable {
                         jobCallBack = Class.forName(jobParams.getClassName()).newInstance();
                     } catch (InstantiationException e) {
                         if (log.isErrorEnabled()) {
-                            log.error(e.getMessage());
+                            log.error("InstantiationException====",e);
                         }
                     } catch (IllegalAccessException e) {
                         if (log.isErrorEnabled()) {
-                            log.error(e.getMessage());
+                            log.error("===IllegalAccessException===",e);
                         }
                     } catch (ClassNotFoundException e) {
                         if (log.isErrorEnabled()) {
-                            log.error(e.getMessage());
+                            log.error("===ClassNotFoundException===",e);
                         }
                     }
                 }
@@ -141,7 +141,8 @@ public class ExecutorBizImpl implements ExecutorBiz, Closeable {
                 }
 
                 /*job执行完毕后进行 客户端 success 方法执行*/
-                registerService.jobExecutionResult(jobParams.getLogId(), Result.EXECUTE_SUCCESS.getCode());
+                Boolean logSuccess=registerService.jobExecutionResult(jobParams.getLogId(), Result.EXECUTE_SUCCESS.getCode());
+                if(!logSuccess){log.error("业务方法执行成功!! 服务端日志记录有误");}
                 if (!StringUtils.isEmpty(clock.success())) {
                     Method success = jobCallBack.getClass().getMethod(clock.success());
                     if (success != null) {
@@ -175,6 +176,7 @@ public class ExecutorBizImpl implements ExecutorBiz, Closeable {
                     registerService.jobExecutionResult(jobParams.getLogId(), Result.EXECUTE_FAIL.getCode());
                 } catch (IOException e1) {
                     //  t.setStatus(e1);
+                    log.error("http call back error",e1);
                 }
             } finally {
                 // t.complete();

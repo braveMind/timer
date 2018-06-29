@@ -74,7 +74,7 @@ public class RegisterServiceImp implements RegisterService {
         try {
             return result.getStatus() == 1 ? true : false;
         } catch (Exception e) {
-            logger.error("request sent to server failed! error message: {}", e.getMessage());
+            logger.error("request sent to server failed! error message", e);
             return false;
         }
     }

@@ -20,7 +20,8 @@ public class TestJob {
      * @param value
      */
     @Clock
-    public void testPrint(String value){
+    public void testPrint(String value) throws InterruptedException {
+        Thread.sleep(10*1000);
         System.out.println(value);
     }
 }
