@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 
 import com.jun.timer.application.JobApplication;
 import com.jun.timer.constant.ConstantString;
+import com.jun.timer.constant.RemoteUrlInfo;
 import com.jun.timer.dao.po.JobPO;
 import com.jun.timer.domain.JobDomain;
 import com.jun.timer.dto.JobDto;

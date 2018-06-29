@@ -3,6 +3,7 @@ package com.jun.timer.controller;
 
 
 import com.jun.timer.constant.ConstantString;
+import com.jun.timer.constant.RemoteUrlInfo;
 import com.jun.timer.dto.JobDto;
 import com.jun.timer.dto.Page;
 import com.jun.timer.service.JobService;

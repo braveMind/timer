@@ -3,10 +3,11 @@ package com.jun.timer.spring;
 
 import com.jun.timer.annotation.Clock;
 import com.jun.timer.annotation.Timer;
+import com.jun.timer.operate.RegisterService;
+import com.jun.timer.operate.RegisterServiceImp;
 import com.jun.timer.server.NettyServer;
 import com.jun.timer.server.NettyServerFactory;
 import com.jun.timer.server.ServerService;
-import com.jun.timer.service.RegisterService;
 import com.jun.timer.utils.AopTargetUtils;
 import com.jun.timer.utils.IPUtils;
 import com.jun.timer.utils.PropertiesUtil;
@@ -63,21 +64,21 @@ public class NettySpring implements DisposableBean, ApplicationListener<ContextR
 
 
     public void start() {
-        ServerService serverService = new NettyServer(getAddress(), port);
+        serverService = new NettyServer(getAddress(), port);
         new Thread(() -> {
             serverService.start();
         }).start();
-        this.serverService = serverService;
     }
 
     /*服务下线*/
     @Override
     public void destroy() throws Exception {
-        RegisterService registerService = ApplicationContextUtil.getBean(RegisterService.class);
+        RegisterService registerService = ApplicationContextUtil.getRegister();
         registerService.unRegister(IPUtils.getIpPort(port), appName);
         serverService.stop();
         if (logger.isInfoEnabled()) {
             logger.info("服务下线成功!");
+            
         }
 
     }
@@ -85,7 +86,7 @@ public class NettySpring implements DisposableBean, ApplicationListener<ContextR
     /*服务注册*/
     public void register() throws Exception {
         if (flag.compareAndSet(false, true)) {
-            RegisterService registerService = ApplicationContextUtil.getBean(RegisterService.class);
+            RegisterService registerService = ApplicationContextUtil.getRegister();
             ;
 
             if (logger.isInfoEnabled()) {
@@ -99,7 +100,7 @@ public class NettySpring implements DisposableBean, ApplicationListener<ContextR
             // 第二个参数为首次执行的延时时间，第三个参数为定时执行的间隔时间
             service.scheduleAtFixedRate(() -> {
                 try {
-                    registerService.heartbeat(appName, IPUtils.getIpPort(port));
+                    registerService.register(IPUtils.getIpPort(port),appName);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -134,7 +135,9 @@ public class NettySpring implements DisposableBean, ApplicationListener<ContextR
             try {
                 register();
             } catch (Exception e) {
-                logger.error(e.getMessage());
+                logger.error("===服务注册失败===",e);
+                serverService.stop();
+
                 System.exit(1);
             }
             Map<String, Object> beans = event.getApplicationContext().getBeansWithAnnotation(Timer.class);

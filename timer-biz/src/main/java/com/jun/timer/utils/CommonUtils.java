@@ -3,6 +3,7 @@ package com.jun.timer.utils;
 
 
 import com.jun.timer.constant.ConstantString;
+import com.jun.timer.constant.RemoteUrlInfo;
 import com.jun.timer.dto.LogDto;
 import com.jun.timer.enums.LogTypeEnum;
 

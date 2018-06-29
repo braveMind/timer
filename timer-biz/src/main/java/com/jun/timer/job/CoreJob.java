@@ -7,6 +7,7 @@ import com.jun.timer.application.MessageApplication;
 import com.jun.timer.common.Result;
 import com.jun.timer.common.RpcResponse;
 import com.jun.timer.constant.ConstantString;
+import com.jun.timer.constant.RemoteUrlInfo;
 import com.jun.timer.dto.EmailMessageDto;
 import com.jun.timer.dto.JobDto;
 import com.jun.timer.dto.JobParams;

@@ -56,6 +56,7 @@
         <version>${guava}</version>
       </dependency>
 
+
       <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
       <dependency>
         <groupId>com.google.code.gson</groupId>
@@ -67,7 +68,11 @@
         <artifactId>jackson-annotations</artifactId>
         <version>${jackson-annotations}</version>
       </dependency>
-
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.7.25</version>
+      </dependency>
 
 
     </dependencies>

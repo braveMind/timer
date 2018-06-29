@@ -3,6 +3,7 @@ package com.jun.timer.domain.impl;
 import com.github.pagehelper.PageHelper;
 
 import com.jun.timer.constant.ConstantString;
+import com.jun.timer.constant.RemoteUrlInfo;
 import com.jun.timer.dao.LogPOMapper;
 import com.jun.timer.dao.po.LogPO;
 import com.jun.timer.domain.LogDomain;

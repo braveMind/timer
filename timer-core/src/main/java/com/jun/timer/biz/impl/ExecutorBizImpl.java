@@ -6,8 +6,8 @@ import com.jun.timer.biz.ExecutorBiz;
 import com.jun.timer.common.Result;
 import com.jun.timer.common.RpcResponse;
 import com.jun.timer.dto.JobParams;
+import com.jun.timer.operate.RegisterService;
 import com.jun.timer.server.NettyServerFactory;
-import com.jun.timer.service.RegisterService;
 import com.jun.timer.spring.ApplicationContextUtil;
 import com.jun.timer.utils.AopTargetUtils;
 import org.slf4j.Logger;
@@ -34,7 +34,7 @@ public class ExecutorBizImpl implements ExecutorBiz, Closeable {
 
     @Override
     public RpcResponse run(JobParams jobParams) {
-        executorService.execute(new Executor(jobParams, ApplicationContextUtil.getBean(RegisterService.class)));
+        executorService.execute(new Executor(jobParams, ApplicationContextUtil.getRegister());
         return new RpcResponse(Result.SUCCESS, "客户端RPC调用成功！");
     }
 
